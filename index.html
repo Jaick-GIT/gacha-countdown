@@ -4,334 +4,354 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gacha Patch Countdown 🇨🇱</title>
-<meta name="description" content="Contadores en tiempo real para los próximos parches de Honkai Star Rail, Wuthering Waves, Arknights Endfield, Neverness to Everness y Zenless Zone Zero — hora Chile.">
+<meta name="description" content="Contadores en tiempo real para los próximos parches de HSR, Wuthering Waves, Arknights Endfield, NTE y ZZZ — Horario Chile.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  :root {
-    --bg-page:     #0b0d14;
-    --bg-card:     #111420;
-    --bg-seg:      #0d0f1a;
-    --border:      rgba(255,255,255,0.07);
-    --border-hover:rgba(255,255,255,0.18);
-    --text-bright: #f0ead6;
-    --text-mid:    #9a8f7e;
-    --text-dim:    #4a4438;
-    --gold:        #e2b96f;
-    --gold-dim:    rgba(226,185,111,0.12);
-  }
+:root {
+  --bg-page: #050810;
+  --bg-card: #0c0f1e;
+  --bg-seg:  #070914;
+  --border:  rgba(255,255,255,0.06);
+  --text-bright: #eeeaff;
+  --text-mid:    #8a85a0;
+  --text-dim:    #3a3650;
+  --gold: #e8c56d;
+  --cyan: #00e5ff;
+}
 
-  html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; }
 
-  body {
-    font-family: 'Exo 2', sans-serif;
-    background: var(--bg-page);
-    color: var(--text-bright);
-    min-height: 100vh;
-    overflow-x: hidden;
-  }
+body {
+  font-family: 'Exo 2', sans-serif;
+  background: var(--bg-page);
+  color: var(--text-bright);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
 
-  /* ── Starfield background ── */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      radial-gradient(1px 1px at 12% 18%, rgba(255,255,255,0.55) 0%, transparent 100%),
-      radial-gradient(1px 1px at 34% 67%, rgba(255,255,255,0.4)  0%, transparent 100%),
-      radial-gradient(1px 1px at 56% 9%,  rgba(255,255,255,0.6)  0%, transparent 100%),
-      radial-gradient(1px 1px at 78% 43%, rgba(255,255,255,0.35) 0%, transparent 100%),
-      radial-gradient(1px 1px at 90% 81%, rgba(255,255,255,0.5)  0%, transparent 100%),
-      radial-gradient(1px 1px at 22% 92%, rgba(255,255,255,0.3)  0%, transparent 100%),
-      radial-gradient(1px 1px at 66% 55%, rgba(255,255,255,0.45) 0%, transparent 100%),
-      radial-gradient(1px 1px at 45% 30%, rgba(255,255,255,0.5)  0%, transparent 100%),
-      radial-gradient(1px 1px at 8%  52%, rgba(255,255,255,0.4)  0%, transparent 100%),
-      radial-gradient(1px 1px at 88% 22%, rgba(255,255,255,0.55) 0%, transparent 100%),
-      radial-gradient(1px 1px at 3%  78%, rgba(255,255,255,0.3)  0%, transparent 100%),
-      radial-gradient(1px 1px at 60% 88%, rgba(255,255,255,0.45) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: 0;
-  }
+/* scanlines */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+  pointer-events: none;
+  z-index: 9999;
+}
 
-  /* ── Layout ── */
-  .page { position: relative; z-index: 1; max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 4rem; }
+/* animated grid */
+.bg-grid {
+  position: fixed; inset: 0; z-index: 0;
+  background-image:
+    linear-gradient(rgba(0,229,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,229,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  animation: grid-move 22s linear infinite;
+}
+@keyframes grid-move { to { background-position: 60px 60px; } }
 
-  /* ── Header ── */
-  .header { text-align: center; margin-bottom: 3rem; }
+/* glow orbs */
+.orb { position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+.orb-1 { width: 500px; height: 500px; background: #5b21b6; opacity: 0.15; top: -150px; left: -100px; }
+.orb-2 { width: 400px; height: 400px; background: #0369a1; opacity: 0.14; bottom: -80px; right: -60px; }
+.orb-3 { width: 280px; height: 280px; background: #9d174d; opacity: 0.11; top: 45%; left: 50%; transform: translate(-50%,-50%); }
 
-  .header-eyebrow {
-    font-size: 0.72rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 0.75rem;
-    opacity: 0.8;
-  }
+.page {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+}
 
-  .header h1 {
-    font-family: 'Rajdhani', sans-serif;
-    font-size: clamp(2rem, 5vw, 3.2rem);
-    font-weight: 700;
-    letter-spacing: 0.06em;
-    line-height: 1.1;
-    color: var(--text-bright);
-    text-shadow: 0 0 40px rgba(226,185,111,0.25);
-  }
+/* ── HEADER ── */
+.header { text-align: center; margin-bottom: 3.5rem; }
 
-  .header h1 span { color: var(--gold); }
+.eyebrow {
+  font-family: 'Orbitron', monospace;
+  font-size: 0.58rem; letter-spacing: 0.22em; color: var(--cyan);
+  border: 1px solid rgba(0,229,255,0.25); padding: 4px 14px; border-radius: 2px;
+  display: inline-block; margin-bottom: 1.2rem;
+  animation: eyebrow-pulse 3s ease-in-out infinite;
+}
+@keyframes eyebrow-pulse {
+  0%,100% { border-color: rgba(0,229,255,0.25); }
+  50%      { border-color: rgba(0,229,255,0.6); box-shadow: 0 0 10px rgba(0,229,255,0.15); }
+}
 
-  .header-sub {
-    margin-top: 0.75rem;
-    font-size: 0.85rem;
-    color: var(--text-mid);
-    letter-spacing: 0.05em;
-  }
+.header h1 {
+  font-family: 'Orbitron', monospace;
+  font-size: clamp(1.7rem, 4.5vw, 3.1rem);
+  font-weight: 900; letter-spacing: 0.03em; line-height: 1.1;
+  color: var(--text-bright);
+  position: relative; display: inline-block;
+}
+.hl-c { color: var(--cyan);  text-shadow: 0 0 20px rgba(0,229,255,0.5); }
+.hl-g { color: var(--gold); text-shadow: 0 0 18px rgba(232,197,109,0.4); }
 
-  .header-sub strong { color: var(--gold); font-weight: 600; }
+.header h1::before, .header h1::after {
+  content: attr(data-text); position: absolute; top: 0; left: 0; right: 0; opacity: 0;
+}
+.header h1::before { color: var(--cyan);  clip-path: polygon(0 30%,100% 30%,100% 50%,0 50%); transform: translateX(-2px); animation: gl1 7s infinite; }
+.header h1::after  { color: #ff3cac; clip-path: polygon(0 62%,100% 62%,100% 76%,0 76%); transform: translateX(2px);  animation: gl2 7s infinite; }
+@keyframes gl1 { 0%,91%,100%{opacity:0} 92%,93%{opacity:0.55} }
+@keyframes gl2 { 0%,94%,100%{opacity:0} 95%,96%{opacity:0.45} }
 
-  .gold-line {
-    width: 60px; height: 1px;
-    background: linear-gradient(90deg, transparent, var(--gold), transparent);
-    margin: 1.5rem auto 0;
-  }
+.header-sub {
+  margin-top: 0.9rem;
+  font-family: 'Orbitron', monospace; font-size: 0.68rem;
+  letter-spacing: 0.1em; color: var(--text-mid);
+}
+.header-sub strong { color: var(--gold); }
 
-  /* ── Grid ── */
-  .grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-    gap: 1.25rem;
-  }
+.deco { display: flex; align-items: center; gap: 10px; width: fit-content; margin: 1.4rem auto 0; }
+.deco-bar { width: 80px; height: 1px; background: linear-gradient(90deg, transparent, var(--cyan), transparent); }
+.deco-gem  { width: 6px; height: 6px; background: var(--cyan); transform: rotate(45deg); box-shadow: 0 0 8px var(--cyan); }
 
-  /* ── Card ── */
-  .card {
-    background: var(--bg-card);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    overflow: hidden;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
-    position: relative;
-  }
+/* ── TICKER ── */
+.ticker-wrap {
+  overflow: hidden;
+  border-top: 1px solid rgba(0,229,255,0.12);
+  border-bottom: 1px solid rgba(0,229,255,0.12);
+  padding: 7px 0; margin-bottom: 2.5rem;
+  position: relative;
+}
+.ticker-wrap::before { content:''; position:absolute; top:0;bottom:0;left:0; width:50px; background:linear-gradient(90deg,var(--bg-page),transparent); z-index:2; }
+.ticker-wrap::after  { content:''; position:absolute; top:0;bottom:0;right:0; width:50px; background:linear-gradient(-90deg,var(--bg-page),transparent); z-index:2; }
+.ticker { display:flex; gap:3.5rem; white-space:nowrap; animation:tick 32s linear infinite; }
+.ticker-item { font-family:'Orbitron',monospace; font-size:0.58rem; letter-spacing:0.15em; color:rgba(0,229,255,0.45); flex-shrink:0; }
+.ticker-item b { color:var(--gold); font-weight:500; }
+@keyframes tick { to { transform: translateX(-50%); } }
 
-  .card:hover {
-    transform: translateY(-5px);
-    border-color: var(--border-hover);
-    box-shadow: 0 20px 50px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.05);
-  }
+/* ── GRID ── */
+.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(205px,1fr)); gap:1.2rem; }
 
-  /* accent line top */
-  .card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--card-accent);
-    opacity: 0;
-    transition: opacity 0.25s;
-  }
-  .card:hover::before { opacity: 1; }
+/* ── CARD ── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden; position: relative;
+  transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+  clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+}
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--ac);
+  box-shadow: 0 0 0 1px var(--ac), 0 22px 60px rgba(0,0,0,0.65), 0 0 35px -8px var(--ac);
+}
+.card-stripe {
+  height: 2px;
+  background: linear-gradient(90deg, var(--ac), transparent 70%);
+}
+.card-corner {
+  position: absolute; top: 2px; right: 0;
+  width: 18px; height: 18px;
+  background: var(--ac);
+  clip-path: polygon(100% 0, 0 0, 100% 100%);
+  opacity: 0.75; z-index: 5;
+  transition: opacity 0.3s;
+}
+.card:hover .card-corner { opacity: 1; }
 
-  /* ── Banner ── */
-  .card-banner {
-    height: 110px;
-    position: relative;
-    overflow: hidden;
-    display: flex;
-    align-items: flex-end;
-  }
+/* ── BANNER ── */
+.card-banner {
+  height: 155px; position: relative; overflow: hidden;
+}
 
-  .banner-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.4s ease;
-  }
-  .card:hover .banner-bg { transform: scale(1.06); }
+.banner-img {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center 20%;
+  transition: transform 0.5s ease, filter 0.3s;
+  filter: brightness(0.8) saturate(1.1);
+}
+.card:hover .banner-img {
+  transform: scale(1.07);
+  filter: brightness(0.95) saturate(1.25);
+}
 
-  .banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to bottom, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.75) 100%);
-  }
+/* hex grid overlay */
+.banner-hex {
+  position: absolute; inset: 0; z-index: 1; opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49'%3E%3Cpath d='M14 0L28 8v16L14 32 0 24V8z' fill='none' stroke='%23fff' stroke-width='0.8'/%3E%3Cpath d='M14 32l14 8v9M14 32 0 40v9' fill='none' stroke='%23fff' stroke-width='0.8'/%3E%3C/svg%3E");
+}
 
-  .game-title {
-    position: relative;
-    z-index: 2;
-    padding: 0.6rem 0.85rem;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.88rem;
-    font-weight: 600;
-    letter-spacing: 0.07em;
-    color: #fff;
-    text-shadow: 0 1px 6px rgba(0,0,0,0.9);
-    line-height: 1.2;
-  }
+/* vignette + bottom fade */
+.banner-fade {
+  position: absolute; inset: 0; z-index: 2;
+  background:
+    radial-gradient(ellipse at center, transparent 40%, rgba(7,9,20,0.5) 100%),
+    linear-gradient(to bottom, transparent 30%, rgba(7,9,20,0.97) 100%);
+}
 
-  .version-pill {
-    display: inline-block;
-    padding: 1px 8px;
-    border-radius: 99px;
-    font-size: 0.62rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    margin-left: 7px;
-    vertical-align: middle;
-    border: 1px solid currentColor;
-    color: var(--card-accent);
-  }
+/* accent glow line at bottom of banner */
+.banner-glow {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 1px; z-index: 3;
+  background: linear-gradient(90deg, transparent, var(--ac), transparent);
+  box-shadow: 0 0 10px var(--ac);
+  opacity: 0.6;
+}
 
-  /* ── Card body ── */
-  .card-body { padding: 0.85rem; }
+.banner-info {
+  position: absolute; bottom: 0; left: 0; right: 0; z-index: 4;
+  padding: 0.55rem 0.8rem;
+  display: flex; flex-direction: column; gap: 4px;
+}
 
-  .patch-name {
-    font-size: 0.7rem;
-    color: var(--text-mid);
-    margin-bottom: 0.35rem;
-    font-style: italic;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+.game-name-text {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 0.95rem; font-weight: 700;
+  letter-spacing: 0.08em; color: #fff;
+  text-shadow: 0 1px 10px rgba(0,0,0,1), 0 0 20px rgba(0,0,0,0.8);
+  text-transform: uppercase; line-height: 1.1;
+}
 
-  .release-info {
-    font-size: 0.73rem;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-    margin-bottom: 0.7rem;
-    color: var(--card-accent);
-    font-family: 'Rajdhani', sans-serif;
-  }
+.ver-tag {
+  display: inline-flex; align-items: center; gap: 5px;
+  font-family: 'Orbitron', monospace; font-size: 0.57rem;
+  font-weight: 700; letter-spacing: 0.1em;
+  color: var(--ac); background: rgba(0,0,0,0.6);
+  border: 1px solid var(--ac); padding: 2px 8px; border-radius: 2px;
+  width: fit-content; text-shadow: 0 0 8px var(--ac);
+}
+.ver-dot {
+  width: 5px; height: 5px; border-radius: 50%;
+  background: var(--ac); box-shadow: 0 0 5px var(--ac);
+  animation: vdot 1.8s ease-in-out infinite;
+}
+@keyframes vdot { 0%,100%{opacity:1} 50%{opacity:0.25} }
 
-  .divider {
-    height: 1px;
-    background: var(--border);
-    margin-bottom: 0.7rem;
-  }
+/* ── BODY ── */
+.card-body { padding: 0.75rem 0.85rem 0.9rem; }
 
-  /* ── Countdown ── */
-  .countdown {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 5px;
-    text-align: center;
-  }
+.patch-name {
+  font-size: 0.68rem; color: var(--text-mid);
+  font-style: italic; margin-bottom: 0.3rem;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
 
-  .seg {
-    background: var(--bg-seg);
-    border: 1px solid var(--border);
-    border-radius: 7px;
-    padding: 7px 2px 5px;
-    transition: border-color 0.2s;
-  }
-  .card:hover .seg { border-color: rgba(255,255,255,0.12); }
+.release-row {
+  display: flex; align-items: center; gap: 6px; margin-bottom: 0.6rem;
+}
+.release-icon { color: var(--ac); font-size: 0.8rem; }
+.release-date {
+  font-family: 'Orbitron', monospace; font-size: 0.62rem; font-weight: 500;
+  letter-spacing: 0.05em; color: var(--ac); text-shadow: 0 0 8px var(--ac);
+}
+.release-est { font-size: 0.55rem; color: var(--text-dim); margin-left: 2px; }
 
-  .seg-num {
-    display: block;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 1.6rem;
-    font-weight: 700;
-    line-height: 1;
-    color: var(--text-bright);
-  }
+.divider {
+  height: 1px; margin-bottom: 0.6rem;
+  background: linear-gradient(90deg, var(--ac), transparent);
+  opacity: 0.2;
+}
 
-  .seg-label {
-    display: block;
-    font-size: 0.5rem;
-    color: var(--text-dim);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-top: 3px;
-  }
+/* ── COUNTDOWN ── */
+.countdown { display: grid; grid-template-columns: repeat(4,1fr); gap: 4px; }
 
-  /* ── Status states ── */
-  .status-live {
-    color: #4ade80;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-align: center;
-    padding: 0.5rem 0;
-    animation: pulse-live 1.5s ease-in-out infinite;
-  }
+.seg {
+  background: var(--bg-seg);
+  border: 1px solid var(--border);
+  border-radius: 3px; padding: 6px 2px 4px;
+  text-align: center; position: relative; overflow: hidden;
+  transition: border-color 0.3s;
+}
+.card:hover .seg { border-color: rgba(255,255,255,0.1); }
+.seg::after {
+  content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
+  background: var(--ac); opacity:0; box-shadow: 0 0 5px var(--ac);
+  transition: opacity 0.3s;
+}
+.card:hover .seg::after { opacity: 0.45; }
 
-  @keyframes pulse-live {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.6; }
-  }
+.seg-num {
+  display: block;
+  font-family: 'Orbitron', monospace; font-size: 1.3rem;
+  font-weight: 700; line-height: 1; color: var(--text-bright);
+}
+.seg-lbl {
+  display: block;
+  font-family: 'Orbitron', monospace; font-size: 0.4rem;
+  color: var(--text-dim); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 3px;
+}
 
-  .status-soon {
-    color: #facc15;
-    font-family: 'Rajdhani', sans-serif;
-    font-size: 0.78rem;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    text-align: center;
-    padding: 0.35rem 0;
-  }
+.status-live {
+  font-family: 'Orbitron', monospace; font-size: 0.7rem; font-weight: 700;
+  letter-spacing: 0.14em; text-align: center; padding: 0.6rem 0;
+  color: #4ade80; text-shadow: 0 0 14px rgba(74,222,128,0.7);
+  animation: live-pulse 1.4s ease-in-out infinite;
+}
+.status-soon {
+  font-family: 'Orbitron', monospace; font-size: 0.64rem; font-weight: 600;
+  letter-spacing: 0.12em; text-align: center; padding: 0.5rem 0;
+  color: #fbbf24; text-shadow: 0 0 12px rgba(251,191,36,0.6);
+}
+@keyframes live-pulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
 
-  /* ── Footer ── */
-  .footer {
-    margin-top: 3rem;
-    text-align: center;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border);
-  }
+/* ── FOOTER ── */
+.footer {
+  margin-top: 4rem; text-align: center;
+  padding-top: 2rem; border-top: 1px solid var(--border);
+  position: relative;
+}
+.footer::before {
+  content: ''; position: absolute; top: -1px; left: 50%; transform: translateX(-50%);
+  width: 100px; height: 1px; background: var(--cyan); box-shadow: 0 0 10px var(--cyan);
+}
+.footer-status {
+  display: inline-flex; align-items: center; gap: 8px; margin-bottom: 0.8rem;
+  font-family: 'Orbitron', monospace; font-size: 0.58rem; letter-spacing: 0.14em; color: var(--text-mid);
+}
+.live-dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 8px #4ade80; animation:live-pulse 1.4s ease-in-out infinite; }
+.footer p { font-size:0.67rem; color:var(--text-dim); letter-spacing:0.03em; line-height:1.8; }
 
-  .footer p {
-    font-size: 0.7rem;
-    color: var(--text-dim);
-    letter-spacing: 0.05em;
-    line-height: 1.8;
-  }
-
-  .footer a {
-    color: var(--gold);
-    text-decoration: none;
-    opacity: 0.7;
-    transition: opacity 0.2s;
-  }
-  .footer a:hover { opacity: 1; }
-
-  .live-dot {
-    display: inline-block;
-    width: 6px; height: 6px;
-    border-radius: 50%;
-    background: #4ade80;
-    margin-right: 5px;
-    vertical-align: middle;
-    animation: pulse-live 1.5s ease-in-out infinite;
-  }
-
-  /* ── Responsive ── */
-  @media (max-width: 600px) {
-    .page { padding: 2rem 1rem 3rem; }
-    .grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 0.85rem; }
-    .card-banner { height: 90px; }
-    .seg-num { font-size: 1.3rem; }
-  }
+/* ── RESPONSIVE ── */
+@media (max-width:640px) {
+  .page { padding: 2rem 1rem 4rem; }
+  .grid { grid-template-columns: repeat(auto-fit, minmax(165px,1fr)); gap:0.9rem; }
+  .card-banner { height: 130px; }
+  .seg-num { font-size: 1.1rem; }
+  .header h1 { font-size: 1.5rem; }
+}
 </style>
 </head>
 <body>
 
+<div class="bg-grid"></div>
+<div class="orb orb-1"></div>
+<div class="orb orb-2"></div>
+<div class="orb orb-3"></div>
+
 <div class="page">
 
   <header class="header">
-    <p class="header-eyebrow">🇨🇱 Horario Chile · CLT (UTC-4)</p>
-    <h1>Gacha <span>Patch</span> Countdown</h1>
-    <p class="header-sub">Próximas actualizaciones de tus juegos favoritos · <strong>Tiempo real</strong></p>
-    <div class="gold-line"></div>
+    <div class="eyebrow">// SISTEMA ACTIVO · TIEMPO REAL //</div>
+    <h1 data-text="GACHA PATCH COUNTDOWN">
+      <span class="hl-c">GACHA</span> PATCH <span class="hl-g">COUNTDOWN</span>
+    </h1>
+    <p class="header-sub">🇨🇱 &nbsp;Horario Chile · CLT (UTC-4) &nbsp;·&nbsp; <strong>Actualizándose en tiempo real</strong></p>
+    <div class="deco">
+      <div class="deco-bar"></div>
+      <div class="deco-gem"></div>
+      <div class="deco-bar"></div>
+    </div>
   </header>
+
+  <div class="ticker-wrap">
+    <div class="ticker" id="ticker"></div>
+  </div>
 
   <main class="grid" id="grid"></main>
 
   <footer class="footer">
-    <p><span class="live-dot"></span>Actualizándose en tiempo real · Zona horaria: CLT (UTC-4)</p>
-    <p style="margin-top:0.4rem">Las fechas estimadas pueden cambiar según anuncios oficiales de cada desarrollador.</p>
-    <p style="margin-top:0.8rem; font-size:0.62rem; opacity:0.5">
+    <div class="footer-status">
+      <span class="live-dot"></span>
+      ACTUALIZANDO EN TIEMPO REAL · CLT UTC-4
+    </div>
+    <p>Las fechas estimadas pueden cambiar según anuncios oficiales de cada desarrollador.</p>
+    <p style="margin-top:0.9rem;font-size:0.58rem;opacity:0.3;">
       Honkai: Star Rail © HoYoverse &nbsp;·&nbsp; Wuthering Waves © Kuro Games &nbsp;·&nbsp;
       Arknights: Endfield © Gryphline &nbsp;·&nbsp; Neverness to Everness © Hotta Studio &nbsp;·&nbsp;
       Zenless Zone Zero © HoYoverse
@@ -345,135 +365,137 @@ const GAMES = [
   {
     id: 'hsr',
     name: 'Honkai: Star Rail',
+    shortName: 'HSR',
     version: '4.3',
     patchName: 'The Lethe Below the Living',
-    accent: '#6aa3f5',
-    banner: 'linear-gradient(135deg,#0b1540 0%,#1e3d9c 50%,#0b1540 100%)',
+    accent: '#4f8ef7',
+    img: 'img/hsr.jpg',
     target: new Date('2026-06-01T23:00:00-04:00'),
-    releaseStr: '1 Jun 2026 · 23:00 CLT',
+    releaseStr: '1 JUN 2026 · 23:00 CLT',
     confirmed: true
   },
   {
     id: 'wuwa',
     name: 'Wuthering Waves',
+    shortName: 'WuWa',
     version: '3.4',
     patchName: 'Cyberpunk Edgerunners Collab',
-    accent: '#3dd8c0',
-    banner: 'linear-gradient(135deg,#081f1c 0%,#0e5248 50%,#081f1c 100%)',
+    accent: '#00d4aa',
+    img: 'img/wuwa.jpg',
     target: new Date('2026-06-07T20:00:00-07:00'),
-    releaseStr: '7 Jun 2026 · 23:00 CLT',
+    releaseStr: '7 JUN 2026 · 23:00 CLT',
     confirmed: false
   },
   {
     id: 'akef',
     name: 'Arknights: Endfield',
+    shortName: 'Endfield',
     version: '1.3',
     patchName: 'Sketches of Lost Heirlooms',
-    accent: '#f5a05a',
-    banner: 'linear-gradient(135deg,#1e0d04 0%,#6b3010 50%,#1e0d04 100%)',
+    accent: '#f97316',
+    img: 'img/akef.jpg',
     target: new Date('2026-06-05T12:00:00+08:00'),
-    releaseStr: '5 Jun 2026 · 00:00 CLT',
+    releaseStr: '5 JUN 2026 · 00:00 CLT',
     confirmed: true
   },
   {
     id: 'nte',
     name: 'Neverness to Everness',
+    shortName: 'NTE',
     version: '1.1',
     patchName: 'Dreamwalk Corridor',
-    accent: '#c48df5',
-    banner: 'linear-gradient(135deg,#120822 0%,#3d1a65 50%,#120822 100%)',
+    accent: '#c084fc',
+    img: 'img/nte.jpg',
     target: new Date('2026-06-03T16:00:00-07:00'),
-    releaseStr: '3 Jun 2026 · 19:00 CLT',
+    releaseStr: '3 JUN 2026 · 19:00 CLT',
     confirmed: true
   },
   {
     id: 'zzz',
     name: 'Zenless Zone Zero',
+    shortName: 'ZZZ',
     version: '3.0',
     patchName: 'Roscaelifer — Season 3',
-    accent: '#ffb347',
-    banner: 'linear-gradient(135deg,#1e0e00 0%,#7a3c08 50%,#1e0e00 100%)',
+    accent: '#fb923c',
+    img: 'img/zzz.jpg',
     target: new Date('2026-06-16T20:00:00-07:00'),
-    releaseStr: '16 Jun 2026 · 23:00 CLT',
+    releaseStr: '16 JUN 2026 · 23:00 CLT',
     confirmed: true
   }
 ];
 
-function pad(n) { return String(n).padStart(2, '0'); }
+function pad(n) { return String(n).padStart(2,'0'); }
 
 function getCountdown(target) {
   const diff = target.getTime() - Date.now();
   if (diff <= 0) return null;
   const s = Math.floor(diff / 1000);
-  return {
-    d: Math.floor(s / 86400),
-    h: Math.floor((s % 86400) / 3600),
-    m: Math.floor((s % 3600) / 60),
-    sec: s % 60,
-    diff
-  };
+  return { d: Math.floor(s/86400), h: Math.floor((s%86400)/3600), m: Math.floor((s%3600)/60), sec: s%60, diff };
 }
 
-function buildCountdownHTML(g, c) {
-  if (!c) return `<div class="status-live">✦ ¡PARCHE EN VIVO! ✦</div>`;
-  if (c.diff < 86400000) return `<div class="status-soon">⚡ ¡Menos de 24 horas!</div>`;
-  return `
-    <div class="countdown">
-      <div class="seg"><span class="seg-num" id="${g.id}-d">${pad(c.d)}</span><span class="seg-label">Días</span></div>
-      <div class="seg"><span class="seg-num" id="${g.id}-h">${pad(c.h)}</span><span class="seg-label">Horas</span></div>
-      <div class="seg"><span class="seg-num" id="${g.id}-m">${pad(c.m)}</span><span class="seg-label">Min</span></div>
-      <div class="seg"><span class="seg-num" id="${g.id}-s">${pad(c.sec)}</span><span class="seg-label">Seg</span></div>
-    </div>`;
+function cdHTML(g, c) {
+  if (!c) return `<div class="status-live">◆ ¡EN VIVO AHORA! ◆</div>`;
+  if (c.diff < 86400000) return `<div class="status-soon">⚡ MENOS DE 24H ⚡</div>`;
+  return `<div class="countdown">
+    <div class="seg"><span class="seg-num" id="${g.id}-d">${pad(c.d)}</span><span class="seg-lbl">Días</span></div>
+    <div class="seg"><span class="seg-num" id="${g.id}-h">${pad(c.h)}</span><span class="seg-lbl">Horas</span></div>
+    <div class="seg"><span class="seg-num" id="${g.id}-m">${pad(c.m)}</span><span class="seg-lbl">Min</span></div>
+    <div class="seg"><span class="seg-num" id="${g.id}-s">${pad(c.sec)}</span><span class="seg-lbl">Seg</span></div>
+  </div>`;
 }
 
 function buildCard(g) {
   const c = getCountdown(g.target);
-  const est = g.confirmed ? '' : ' <span style="font-size:0.6rem;opacity:0.7">(estimado)</span>';
+  const est = g.confirmed ? '' : `<span class="release-est">(est.)</span>`;
   return `
-    <div class="card" style="--card-accent:${g.accent}">
-      <div class="card-banner">
-        <div class="banner-bg" style="background:${g.banner}"></div>
-        <div class="banner-overlay"></div>
-        <div class="game-title">
-          ${g.name}
-          <span class="version-pill">v${g.version}</span>
-        </div>
+  <div class="card" style="--ac:${g.accent}">
+    <div class="card-stripe"></div>
+    <div class="card-corner"></div>
+    <div class="card-banner">
+      <img class="banner-img" src="${g.img}" alt="${g.name}">
+      <div class="banner-hex"></div>
+      <div class="banner-fade"></div>
+      <div class="banner-glow"></div>
+      <div class="banner-info">
+        <div class="game-name-text">${g.name}</div>
+        <div class="ver-tag"><span class="ver-dot"></span>VER. ${g.version}</div>
       </div>
-      <div class="card-body">
-        <div class="patch-name">"${g.patchName}"</div>
-        <div class="release-info">📅 ${g.releaseStr}${est}</div>
-        <div class="divider"></div>
-        ${buildCountdownHTML(g, c)}
+    </div>
+    <div class="card-body">
+      <div class="patch-name">"${g.patchName}"</div>
+      <div class="release-row">
+        <span class="release-icon">◈</span>
+        <span class="release-date">${g.releaseStr}</span>${est}
       </div>
-    </div>`;
+      <div class="divider"></div>
+      ${cdHTML(g, c)}
+    </div>
+  </div>`;
 }
 
-const grid = document.getElementById('grid');
-grid.innerHTML = GAMES.map(buildCard).join('');
+document.getElementById('grid').innerHTML = GAMES.map(buildCard).join('');
+
+const items = [...GAMES, ...GAMES].map(g =>
+  `<span class="ticker-item">${g.shortName} <b>v${g.version}</b> · ${g.releaseStr}</span>`
+);
+document.getElementById('ticker').innerHTML = items.join('');
 
 setInterval(() => {
   GAMES.forEach(g => {
     const ds = document.getElementById(g.id + '-d');
     if (!ds) return;
     const c = getCountdown(g.target);
-    if (!c) {
-      ds.closest('.countdown').outerHTML = `<div class="status-live">✦ ¡PARCHE EN VIVO! ✦</div>`;
-      return;
-    }
-    if (c.diff < 86400000) {
-      ds.closest('.countdown').outerHTML = `<div class="status-soon">⚡ ¡Menos de 24 horas!</div>`;
-      return;
-    }
+    if (!c) { ds.closest('.countdown').outerHTML = `<div class="status-live">◆ ¡EN VIVO AHORA! ◆</div>`; return; }
+    if (c.diff < 86400000) { ds.closest('.countdown').outerHTML = `<div class="status-soon">⚡ MENOS DE 24H ⚡</div>`; return; }
     ds.textContent = pad(c.d);
-    const hs = document.getElementById(g.id + '-h');
-    const ms = document.getElementById(g.id + '-m');
-    const ss = document.getElementById(g.id + '-s');
-    if (hs) hs.textContent = pad(c.h);
-    if (ms) ms.textContent = pad(c.m);
-    if (ss) ss.textContent = pad(c.sec);
+    const hs = document.getElementById(g.id+'-h');
+    const ms = document.getElementById(g.id+'-m');
+    const ss = document.getElementById(g.id+'-s');
+    if(hs) hs.textContent = pad(c.h);
+    if(ms) ms.textContent = pad(c.m);
+    if(ss) ss.textContent = pad(c.sec);
   });
 }, 1000);
 </script>
-
 </body>
 </html>
