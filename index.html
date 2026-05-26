@@ -4,207 +4,232 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gacha Patch Countdown 🇨🇱</title>
-<meta name="description" content="Contadores en tiempo real para los próximos parches de HSR, Wuthering Waves, Arknights Endfield, NTE, ZZZ y Genshin — Horario Chile.">
+<meta name="description" content="Contadores en tiempo real para los próximos parches de HSR, WuWa, Endfield, NTE, ZZZ y Genshin — Horario Chile.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Orbitron:wght@400;500;700;900&family=Exo+2:ital,wght@0,300;0,400;0,600;1,400&display=swap" rel="stylesheet">
 <style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-:root {
-  --bg-page:#050810; --bg-card:#0c0f1e; --bg-seg:#070914;
-  --border:rgba(255,255,255,0.06); --text-bright:#eeeaff;
-  --text-mid:#8a85a0; --text-dim:#3a3650; --gold:#e8c56d; --cyan:#00e5ff;
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg-page:#050810;--bg-card:#0c0f1e;--bg-seg:#070914;
+  --border:rgba(255,255,255,0.06);--text-bright:#eeeaff;
+  --text-mid:#8a85a0;--text-dim:#3a3650;--gold:#e8c56d;--cyan:#00e5ff;
 }
-html { scroll-behavior: smooth; }
-body { font-family:'Exo 2',sans-serif; background:var(--bg-page); color:var(--text-bright); min-height:100vh; overflow-x:hidden; }
-body::after { content:''; position:fixed; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px); pointer-events:none; z-index:9999; }
-.bg-grid { position:fixed; inset:0; z-index:0; background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px); background-size:60px 60px; animation:grid-move 22s linear infinite; }
-@keyframes grid-move { to { background-position:60px 60px; } }
-.orb { position:fixed; border-radius:50%; filter:blur(90px); pointer-events:none; z-index:0; }
-.orb-1 { width:500px; height:500px; background:#5b21b6; opacity:0.15; top:-150px; left:-100px; }
-.orb-2 { width:400px; height:400px; background:#0369a1; opacity:0.14; bottom:-80px; right:-60px; }
-.orb-3 { width:280px; height:280px; background:#9d174d; opacity:0.11; top:45%; left:50%; transform:translate(-50%,-50%); }
-.page { position:relative; z-index:1; max-width:1200px; margin:0 auto; padding:3rem 1.5rem 5rem; }
+html{scroll-behavior:smooth}
+body{font-family:'Exo 2',sans-serif;background:var(--bg-page);color:var(--text-bright);min-height:100vh;overflow-x:hidden}
+body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(0,0,0,0.025) 2px,rgba(0,0,0,0.025) 4px);pointer-events:none;z-index:9999}
+.bg-grid{position:fixed;inset:0;z-index:0;background-image:linear-gradient(rgba(0,229,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.03) 1px,transparent 1px);background-size:60px 60px;animation:grid-move 22s linear infinite}
+@keyframes grid-move{to{background-position:60px 60px}}
+.orb{position:fixed;border-radius:50%;filter:blur(90px);pointer-events:none;z-index:0}
+.orb-1{width:500px;height:500px;background:#5b21b6;opacity:0.15;top:-150px;left:-100px}
+.orb-2{width:400px;height:400px;background:#0369a1;opacity:0.14;bottom:-80px;right:-60px}
+.orb-3{width:280px;height:280px;background:#9d174d;opacity:0.11;top:45%;left:50%;transform:translate(-50%,-50%)}
+.page{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:3rem 1.5rem 5rem}
 
-/* HEADER */
-.header { text-align:center; margin-bottom:3.5rem; }
-.eyebrow { font-family:'Orbitron',monospace; font-size:0.58rem; letter-spacing:0.22em; color:var(--cyan); border:1px solid rgba(0,229,255,0.25); padding:4px 14px; border-radius:2px; display:inline-block; margin-bottom:1.2rem; animation:eyebrow-pulse 3s ease-in-out infinite; }
-@keyframes eyebrow-pulse { 0%,100%{border-color:rgba(0,229,255,0.25)} 50%{border-color:rgba(0,229,255,0.6);box-shadow:0 0 10px rgba(0,229,255,0.15)} }
-.header h1 { font-family:'Orbitron',monospace; font-size:clamp(1.7rem,4.5vw,3.1rem); font-weight:900; letter-spacing:0.03em; line-height:1.1; color:var(--text-bright); position:relative; display:inline-block; }
-.hl-c { color:var(--cyan); text-shadow:0 0 20px rgba(0,229,255,0.5); }
-.hl-g { color:var(--gold); text-shadow:0 0 18px rgba(232,197,109,0.4); }
-.header h1::before,.header h1::after { content:attr(data-text); position:absolute; top:0; left:0; right:0; opacity:0; }
-.header h1::before { color:var(--cyan); clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%); transform:translateX(-2px); animation:gl1 7s infinite; }
-.header h1::after { color:#ff3cac; clip-path:polygon(0 62%,100% 62%,100% 76%,0 76%); transform:translateX(2px); animation:gl2 7s infinite; }
-@keyframes gl1 { 0%,91%,100%{opacity:0} 92%,93%{opacity:0.55} }
-@keyframes gl2 { 0%,94%,100%{opacity:0} 95%,96%{opacity:0.45} }
-.header-sub { margin-top:0.9rem; font-family:'Orbitron',monospace; font-size:0.68rem; letter-spacing:0.1em; color:var(--text-mid); }
-.header-sub strong { color:var(--gold); }
-.deco { display:flex; align-items:center; gap:10px; width:fit-content; margin:1.4rem auto 0; }
-.deco-bar { width:80px; height:1px; background:linear-gradient(90deg,transparent,var(--cyan),transparent); }
-.deco-gem { width:6px; height:6px; background:var(--cyan); transform:rotate(45deg); box-shadow:0 0 8px var(--cyan); }
+/* ── HEADER ── */
+.header{text-align:center;margin-bottom:3.5rem}
+.eyebrow{font-family:'Orbitron',monospace;font-size:0.58rem;letter-spacing:0.22em;color:var(--cyan);border:1px solid rgba(0,229,255,0.25);padding:4px 14px;border-radius:2px;display:inline-block;margin-bottom:1.2rem;animation:eyebrow-pulse 3s ease-in-out infinite}
+@keyframes eyebrow-pulse{0%,100%{border-color:rgba(0,229,255,0.25)}50%{border-color:rgba(0,229,255,0.6);box-shadow:0 0 10px rgba(0,229,255,0.15)}}
+.header h1{font-family:'Orbitron',monospace;font-size:clamp(1.7rem,4.5vw,3.1rem);font-weight:900;letter-spacing:0.03em;line-height:1.1;color:var(--text-bright);position:relative;display:inline-block}
+.hl-c{color:var(--cyan);text-shadow:0 0 20px rgba(0,229,255,0.5)}
+.hl-g{color:var(--gold);text-shadow:0 0 18px rgba(232,197,109,0.4)}
+.header h1::before,.header h1::after{content:attr(data-text);position:absolute;top:0;left:0;right:0;opacity:0}
+.header h1::before{color:var(--cyan);clip-path:polygon(0 30%,100% 30%,100% 50%,0 50%);transform:translateX(-2px);animation:gl1 7s infinite}
+.header h1::after{color:#ff3cac;clip-path:polygon(0 62%,100% 62%,100% 76%,0 76%);transform:translateX(2px);animation:gl2 7s infinite}
+@keyframes gl1{0%,91%,100%{opacity:0}92%,93%{opacity:0.55}}
+@keyframes gl2{0%,94%,100%{opacity:0}95%,96%{opacity:0.45}}
+.header-sub{margin-top:0.9rem;font-family:'Orbitron',monospace;font-size:0.68rem;letter-spacing:0.1em;color:var(--text-mid)}
+.header-sub strong{color:var(--gold)}
+.deco{display:flex;align-items:center;gap:10px;width:fit-content;margin:1.4rem auto 0}
+.deco-bar{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
+.deco-gem{width:6px;height:6px;background:var(--cyan);transform:rotate(45deg);box-shadow:0 0 8px var(--cyan)}
 
-/* TICKER */
-.ticker-wrap { overflow:hidden; border-top:1px solid rgba(0,229,255,0.12); border-bottom:1px solid rgba(0,229,255,0.12); padding:7px 0; margin-bottom:2.5rem; position:relative; }
-.ticker-wrap::before { content:''; position:absolute; top:0;bottom:0;left:0; width:50px; background:linear-gradient(90deg,var(--bg-page),transparent); z-index:2; }
-.ticker-wrap::after  { content:''; position:absolute; top:0;bottom:0;right:0; width:50px; background:linear-gradient(-90deg,var(--bg-page),transparent); z-index:2; }
-.ticker { display:flex; gap:3.5rem; white-space:nowrap; animation:tick 38s linear infinite; }
-.ticker-item { font-family:'Orbitron',monospace; font-size:0.58rem; letter-spacing:0.15em; color:rgba(0,229,255,0.45); flex-shrink:0; }
-.ticker-item b { color:var(--gold); font-weight:500; }
-@keyframes tick { to { transform:translateX(-50%); } }
+/* ── TICKER ── */
+.ticker-wrap{overflow:hidden;border-top:1px solid rgba(0,229,255,0.12);border-bottom:1px solid rgba(0,229,255,0.12);padding:7px 0;margin-bottom:2.5rem;position:relative}
+.ticker-wrap::before{content:'';position:absolute;top:0;bottom:0;left:0;width:50px;background:linear-gradient(90deg,var(--bg-page),transparent);z-index:2}
+.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;right:0;width:50px;background:linear-gradient(-90deg,var(--bg-page),transparent);z-index:2}
+.ticker{display:flex;gap:3.5rem;white-space:nowrap;animation:tick 38s linear infinite}
+.ticker-item{font-family:'Orbitron',monospace;font-size:0.58rem;letter-spacing:0.15em;color:rgba(0,229,255,0.45);flex-shrink:0}
+.ticker-item b{color:var(--gold);font-weight:500}
+@keyframes tick{to{transform:translateX(-50%)}}
 
-/* GRID */
-.grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:1.2rem; }
-
-/* CARD */
-.card { background:var(--bg-card); border:1px solid var(--border); border-radius:4px; overflow:hidden; position:relative; transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s; clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%); cursor:pointer; }
-.card:hover { transform:translateY(-6px); border-color:var(--ac); box-shadow:0 0 0 1px var(--ac),0 22px 60px rgba(0,0,0,0.65),0 0 35px -8px var(--ac); }
-.card-stripe { height:2px; background:linear-gradient(90deg,var(--ac),transparent 70%); }
-.card-corner { position:absolute; top:2px; right:0; width:18px; height:18px; background:var(--ac); clip-path:polygon(100% 0,0 0,100% 100%); opacity:0.75; z-index:5; transition:opacity 0.3s; }
-.card:hover .card-corner { opacity:1; }
-
-/* click hint */
-.click-hint { position:absolute; top:8px; left:10px; z-index:6; font-family:'Orbitron',monospace; font-size:0.45rem; letter-spacing:0.12em; color:rgba(255,255,255,0.45); background:rgba(0,0,0,0.45); padding:2px 7px; border-radius:2px; border:1px solid rgba(255,255,255,0.1); transition:opacity 0.3s; }
-.card:hover .click-hint { opacity:0; }
-
-/* BANNER */
-.card-banner { height:155px; position:relative; overflow:hidden; }
-.banner-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center 20%; transition:transform 0.5s ease,filter 0.3s; filter:brightness(0.8) saturate(1.1); }
-.card:hover .banner-img { transform:scale(1.07); filter:brightness(0.95) saturate(1.25); }
-.banner-hex { position:absolute; inset:0; z-index:1; opacity:0.04; background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49'%3E%3Cpath d='M14 0L28 8v16L14 32 0 24V8z' fill='none' stroke='%23fff' stroke-width='0.8'/%3E%3Cpath d='M14 32l14 8v9M14 32 0 40v9' fill='none' stroke='%23fff' stroke-width='0.8'/%3E%3C/svg%3E"); }
-.banner-fade { position:absolute; inset:0; z-index:2; background:radial-gradient(ellipse at center,transparent 40%,rgba(7,9,20,0.5) 100%),linear-gradient(to bottom,transparent 30%,rgba(7,9,20,0.97) 100%); }
-.banner-glow { position:absolute; bottom:0; left:0; right:0; height:1px; z-index:3; background:linear-gradient(90deg,transparent,var(--ac),transparent); box-shadow:0 0 10px var(--ac); opacity:0.6; }
-.banner-info { position:absolute; bottom:0; left:0; right:0; z-index:4; padding:0.55rem 0.8rem; display:flex; flex-direction:column; gap:4px; }
-.game-name-text { font-family:'Rajdhani',sans-serif; font-size:0.95rem; font-weight:700; letter-spacing:0.08em; color:#fff; text-shadow:0 1px 10px rgba(0,0,0,1),0 0 20px rgba(0,0,0,0.8); text-transform:uppercase; line-height:1.1; }
-.ver-tag { display:inline-flex; align-items:center; gap:5px; font-family:'Orbitron',monospace; font-size:0.57rem; font-weight:700; letter-spacing:0.1em; color:var(--ac); background:rgba(0,0,0,0.6); border:1px solid var(--ac); padding:2px 8px; border-radius:2px; width:fit-content; text-shadow:0 0 8px var(--ac); }
-.ver-dot { width:5px; height:5px; border-radius:50%; background:var(--ac); box-shadow:0 0 5px var(--ac); animation:vdot 1.8s ease-in-out infinite; }
-@keyframes vdot { 0%,100%{opacity:1} 50%{opacity:0.25} }
-
-/* CARD BODY */
-.card-body { padding:0.75rem 0.85rem 0.9rem; }
-.patch-name { font-size:0.68rem; color:var(--text-mid); font-style:italic; margin-bottom:0.3rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.release-row { display:flex; align-items:center; gap:6px; margin-bottom:0.6rem; }
-.release-icon { color:var(--ac); font-size:0.8rem; }
-.release-date { font-family:'Orbitron',monospace; font-size:0.62rem; font-weight:500; letter-spacing:0.05em; color:var(--ac); text-shadow:0 0 8px var(--ac); }
-.release-est { font-size:0.55rem; color:var(--text-dim); margin-left:2px; }
-.divider { height:1px; margin-bottom:0.6rem; background:linear-gradient(90deg,var(--ac),transparent); opacity:0.2; }
-
-/* COUNTDOWN */
-.countdown { display:grid; grid-template-columns:repeat(4,1fr); gap:4px; }
-.seg { background:var(--bg-seg); border:1px solid var(--border); border-radius:3px; padding:6px 2px 4px; text-align:center; position:relative; overflow:hidden; transition:border-color 0.3s; }
-.card:hover .seg { border-color:rgba(255,255,255,0.1); }
-.seg::after { content:''; position:absolute; bottom:0; left:0; right:0; height:1px; background:var(--ac); opacity:0; box-shadow:0 0 5px var(--ac); transition:opacity 0.3s; }
-.card:hover .seg::after { opacity:0.45; }
-.seg-num { display:block; font-family:'Orbitron',monospace; font-size:1.3rem; font-weight:700; line-height:1; color:var(--text-bright); }
-.seg-lbl { display:block; font-family:'Orbitron',monospace; font-size:0.4rem; color:var(--text-dim); text-transform:uppercase; letter-spacing:0.1em; margin-top:3px; }
-.status-live { font-family:'Orbitron',monospace; font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-align:center; padding:0.6rem 0; color:#4ade80; text-shadow:0 0 14px rgba(74,222,128,0.7); animation:live-pulse 1.4s ease-in-out infinite; }
-.status-soon { font-family:'Orbitron',monospace; font-size:0.64rem; font-weight:600; letter-spacing:0.12em; text-align:center; padding:0.5rem 0; color:#fbbf24; text-shadow:0 0 12px rgba(251,191,36,0.6); }
-@keyframes live-pulse { 0%,100%{opacity:1} 50%{opacity:0.45} }
-
-/* ══════════════════════════════════
-   MODAL
-══════════════════════════════════ */
-.modal-backdrop {
-  position:fixed; inset:0; z-index:10000;
-  background:rgba(2,3,12,0.88);
-  backdrop-filter:blur(8px);
-  display:flex; align-items:center; justify-content:center;
-  padding:1.5rem;
-  opacity:0; pointer-events:none;
-  transition:opacity 0.3s;
+/* ── SECTION TITLE ── */
+.section-title{
+  display:flex;align-items:center;gap:1rem;
+  margin-bottom:1.5rem;margin-top:3.5rem;
 }
-.modal-backdrop.open { opacity:1; pointer-events:all; }
-
-.modal {
-  background:#0c0f1e;
-  border:1px solid var(--modal-ac, #00e5ff);
-  border-radius:6px;
-  width:100%; max-width:620px;
-  max-height:90vh; overflow-y:auto;
-  position:relative;
-  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);
-  transform:translateY(20px);
-  transition:transform 0.3s;
-  box-shadow:0 0 0 1px var(--modal-ac,#00e5ff),0 30px 80px rgba(0,0,0,0.8),0 0 60px -15px var(--modal-ac,#00e5ff);
+.section-title-text{
+  font-family:'Orbitron',monospace;font-size:0.72rem;font-weight:700;
+  letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mid);
+  white-space:nowrap;
 }
-.modal-backdrop.open .modal { transform:translateY(0); }
-
-/* top stripe */
-.modal-stripe { height:2px; background:linear-gradient(90deg,var(--modal-ac),transparent 70%); }
-
-/* corner */
-.modal-corner { position:absolute; top:2px; right:0; width:22px; height:22px; background:var(--modal-ac); clip-path:polygon(100% 0,0 0,100% 100%); opacity:0.8; }
-
-/* close */
-.modal-close {
-  position:absolute; top:14px; right:18px; z-index:10;
-  background:rgba(255,255,255,0.07); border:1px solid rgba(255,255,255,0.12);
-  color:var(--text-mid); font-size:1rem; width:30px; height:30px;
-  border-radius:3px; cursor:pointer; display:flex; align-items:center; justify-content:center;
-  transition:background 0.2s,color 0.2s;
-  font-family:'Orbitron',monospace;
+.section-title-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.08),transparent)}
+.section-title-badge{
+  font-family:'Orbitron',monospace;font-size:0.52rem;letter-spacing:0.12em;
+  color:var(--cyan);border:1px solid rgba(0,229,255,0.3);
+  padding:3px 10px;border-radius:2px;white-space:nowrap;flex-shrink:0;
 }
-.modal-close:hover { background:rgba(255,255,255,0.15); color:#fff; }
 
-.modal-header { padding:1.2rem 1.4rem 0.8rem; border-bottom:1px solid rgba(255,255,255,0.06); }
-.modal-game-name { font-family:'Orbitron',monospace; font-size:1rem; font-weight:700; letter-spacing:0.08em; color:var(--modal-ac); text-shadow:0 0 15px var(--modal-ac); margin-bottom:0.2rem; }
-.modal-patch-name { font-size:0.75rem; color:var(--text-mid); font-style:italic; }
+/* ── COUNTDOWN GRID ── */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.2rem}
 
-.modal-body { padding:1.2rem 1.4rem; }
+/* ── COUNTDOWN CARD ── */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;overflow:hidden;position:relative;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%);cursor:pointer}
+.card:hover{transform:translateY(-6px);border-color:var(--ac);box-shadow:0 0 0 1px var(--ac),0 22px 60px rgba(0,0,0,0.65),0 0 35px -8px var(--ac)}
+.card-stripe{height:2px;background:linear-gradient(90deg,var(--ac),transparent 70%)}
+.card-corner{position:absolute;top:2px;right:0;width:18px;height:18px;background:var(--ac);clip-path:polygon(100% 0,0 0,100% 100%);opacity:0.75;z-index:5;transition:opacity 0.3s}
+.card:hover .card-corner{opacity:1}
+.click-hint{position:absolute;top:8px;left:10px;z-index:6;font-family:'Orbitron',monospace;font-size:0.45rem;letter-spacing:0.12em;color:rgba(255,255,255,0.45);background:rgba(0,0,0,0.45);padding:2px 7px;border-radius:2px;border:1px solid rgba(255,255,255,0.1);transition:opacity 0.3s}
+.card:hover .click-hint{opacity:0}
+.card-banner{height:155px;position:relative;overflow:hidden}
+.banner-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%;transition:transform 0.5s ease,filter 0.3s;filter:brightness(0.8) saturate(1.1)}
+.card:hover .banner-img{transform:scale(1.07);filter:brightness(0.95) saturate(1.25)}
+.banner-hex{position:absolute;inset:0;z-index:1;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49'%3E%3Cpath d='M14 0L28 8v16L14 32 0 24V8z' fill='none' stroke='%23fff' stroke-width='0.8'/%3E%3Cpath d='M14 32l14 8v9M14 32 0 40v9' fill='none' stroke='%23fff' stroke-width='0.8'/%3E%3C/svg%3E")}
+.banner-fade{position:absolute;inset:0;z-index:2;background:radial-gradient(ellipse at center,transparent 40%,rgba(7,9,20,0.5) 100%),linear-gradient(to bottom,transparent 30%,rgba(7,9,20,0.97) 100%)}
+.banner-glow{position:absolute;bottom:0;left:0;right:0;height:1px;z-index:3;background:linear-gradient(90deg,transparent,var(--ac),transparent);box-shadow:0 0 10px var(--ac);opacity:0.6}
+.banner-info{position:absolute;bottom:0;left:0;right:0;z-index:4;padding:0.55rem 0.8rem;display:flex;flex-direction:column;gap:4px}
+.game-name-text{font-family:'Rajdhani',sans-serif;font-size:0.95rem;font-weight:700;letter-spacing:0.08em;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,1),0 0 20px rgba(0,0,0,0.8);text-transform:uppercase;line-height:1.1}
+.ver-tag{display:inline-flex;align-items:center;gap:5px;font-family:'Orbitron',monospace;font-size:0.57rem;font-weight:700;letter-spacing:0.1em;color:var(--ac);background:rgba(0,0,0,0.6);border:1px solid var(--ac);padding:2px 8px;border-radius:2px;width:fit-content;text-shadow:0 0 8px var(--ac)}
+.ver-dot{width:5px;height:5px;border-radius:50%;background:var(--ac);box-shadow:0 0 5px var(--ac);animation:vdot 1.8s ease-in-out infinite}
+@keyframes vdot{0%,100%{opacity:1}50%{opacity:0.25}}
+.card-body{padding:0.75rem 0.85rem 0.9rem}
+.patch-name{font-size:0.68rem;color:var(--text-mid);font-style:italic;margin-bottom:0.3rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.release-row{display:flex;align-items:center;gap:6px;margin-bottom:0.6rem}
+.release-icon{color:var(--ac);font-size:0.8rem}
+.release-date{font-family:'Orbitron',monospace;font-size:0.62rem;font-weight:500;letter-spacing:0.05em;color:var(--ac);text-shadow:0 0 8px var(--ac)}
+.release-est{font-size:0.55rem;color:var(--text-dim);margin-left:2px}
+.divider{height:1px;margin-bottom:0.6rem;background:linear-gradient(90deg,var(--ac),transparent);opacity:0.2}
+.countdown{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}
+.seg{background:var(--bg-seg);border:1px solid var(--border);border-radius:3px;padding:6px 2px 4px;text-align:center;position:relative;overflow:hidden;transition:border-color 0.3s}
+.card:hover .seg{border-color:rgba(255,255,255,0.1)}
+.seg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--ac);opacity:0;box-shadow:0 0 5px var(--ac);transition:opacity 0.3s}
+.card:hover .seg::after{opacity:0.45}
+.seg-num{display:block;font-family:'Orbitron',monospace;font-size:1.3rem;font-weight:700;line-height:1;color:var(--text-bright)}
+.seg-lbl{display:block;font-family:'Orbitron',monospace;font-size:0.4rem;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.1em;margin-top:3px}
+.status-live{font-family:'Orbitron',monospace;font-size:0.7rem;font-weight:700;letter-spacing:0.14em;text-align:center;padding:0.6rem 0;color:#4ade80;text-shadow:0 0 14px rgba(74,222,128,0.7);animation:live-pulse 1.4s ease-in-out infinite}
+.status-soon{font-family:'Orbitron',monospace;font-size:0.64rem;font-weight:600;letter-spacing:0.12em;text-align:center;padding:0.5rem 0;color:#fbbf24;text-shadow:0 0 12px rgba(251,191,36,0.6)}
+@keyframes live-pulse{0%,100%{opacity:1}50%{opacity:0.45}}
 
-/* phases */
-.phases { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
-@media(max-width:480px){ .phases { grid-template-columns:1fr; } }
+/* ══════════════════════════════
+   BANNERS ACTUALES
+══════════════════════════════ */
+.current-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:1rem;
+}
 
-.phase-card {
-  background:rgba(255,255,255,0.03);
-  border:1px solid rgba(255,255,255,0.07);
-  border-radius:4px; overflow:hidden;
+.cb-card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:4px;overflow:hidden;
+  transition:border-color 0.25s,box-shadow 0.25s;
+  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);
+}
+.cb-card:hover{
+  border-color:var(--cb-ac);
+  box-shadow:0 0 0 1px var(--cb-ac),0 12px 40px rgba(0,0,0,0.5),0 0 25px -8px var(--cb-ac);
+}
+.cb-stripe{height:2px;background:linear-gradient(90deg,var(--cb-ac),transparent 70%)}
+.cb-corner{position:absolute;top:2px;right:0;width:14px;height:14px;background:var(--cb-ac);clip-path:polygon(100% 0,0 0,100% 100%);opacity:0.7}
+
+.cb-inner{padding:0.85rem 1rem;position:relative}
+
+/* game label row */
+.cb-game-row{display:flex;align-items:center;gap:8px;margin-bottom:0.7rem}
+.cb-game-dot{width:8px;height:8px;border-radius:50%;background:var(--cb-ac);box-shadow:0 0 6px var(--cb-ac);flex-shrink:0}
+.cb-game-name{font-family:'Rajdhani',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-bright)}
+.cb-version{font-family:'Orbitron',monospace;font-size:0.52rem;color:var(--cb-ac);border:1px solid var(--cb-ac);padding:1px 7px;border-radius:2px;margin-left:auto;letter-spacing:0.08em;opacity:0.9}
+
+/* phases row */
+.cb-phases{display:flex;flex-direction:column;gap:0.5rem}
+
+.cb-phase{
+  background:rgba(255,255,255,0.025);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:3px;padding:0.5rem 0.65rem;
+}
+.cb-phase-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.35rem}
+.cb-phase-label{font-family:'Orbitron',monospace;font-size:0.5rem;font-weight:700;letter-spacing:0.12em;color:var(--cb-ac)}
+.cb-phase-end{
+  font-family:'Orbitron',monospace;font-size:0.46rem;letter-spacing:0.06em;
+  color:var(--text-dim);display:flex;align-items:center;gap:4px;
+}
+.cb-end-dot{width:4px;height:4px;border-radius:50%;background:#f87171;box-shadow:0 0 4px #f87171;animation:live-pulse 1.4s ease-in-out infinite}
+
+.cb-chars{display:flex;flex-wrap:wrap;gap:4px}
+.cb-char{
+  display:inline-flex;align-items:center;gap:4px;
+  padding:3px 8px;border-radius:3px;
+  background:rgba(255,255,255,0.04);
+  border:1px solid rgba(255,255,255,0.08);
   transition:border-color 0.2s;
 }
-.phase-card:hover { border-color:rgba(255,255,255,0.15); }
-
-.phase-header {
-  padding:0.5rem 0.75rem;
-  background:rgba(255,255,255,0.04);
-  border-bottom:1px solid rgba(255,255,255,0.06);
-  display:flex; align-items:center; justify-content:space-between;
+.cb-card:hover .cb-char{border-color:rgba(255,255,255,0.14)}
+.cb-char-star{font-size:0.55rem}
+.rarity-gold .cb-char-star{color:#ffb100}
+.rarity-purple .cb-char-star{color:#a064ff}
+.cb-char-name{font-family:'Rajdhani',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.04em;color:var(--text-bright)}
+.cb-char-sub{font-size:0.55rem;color:var(--text-mid)}
+.cb-new-badge{
+  font-family:'Orbitron',monospace;font-size:0.42rem;font-weight:700;
+  letter-spacing:0.08em;padding:1px 5px;border-radius:2px;
+  background:rgba(0,229,255,0.12);color:var(--cyan);border:1px solid rgba(0,229,255,0.3);
+  margin-left:2px;
 }
-.phase-label { font-family:'Orbitron',monospace; font-size:0.6rem; font-weight:700; letter-spacing:0.12em; color:var(--modal-ac); }
-.phase-dates { font-family:'Orbitron',monospace; font-size:0.52rem; color:var(--text-dim); letter-spacing:0.06em; }
-
-.phase-chars { padding:0.75rem; display:flex; flex-direction:column; gap:0.55rem; }
-
-.char-row { display:flex; align-items:center; gap:0.6rem; }
-.char-rarity {
-  font-family:'Orbitron',monospace; font-size:0.55rem; font-weight:700;
-  padding:2px 6px; border-radius:2px; flex-shrink:0;
-  letter-spacing:0.06em;
+.cb-rerun-badge{
+  font-family:'Orbitron',monospace;font-size:0.42rem;
+  letter-spacing:0.08em;padding:1px 5px;border-radius:2px;
+  background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.2);
+  margin-left:2px;
 }
-.rarity-5, .rarity-6, .rarity-s { background:rgba(255,177,0,0.15); color:#ffb100; border:1px solid rgba(255,177,0,0.3); }
-.rarity-4, .rarity-a { background:rgba(160,100,255,0.15); color:#a064ff; border:1px solid rgba(160,100,255,0.3); }
-.rarity-rerun { background:rgba(100,180,255,0.12); color:#64b4ff; border:1px solid rgba(100,180,255,0.25); font-size:0.48rem; }
 
-.char-info { flex:1; min-width:0; }
-.char-name { font-size:0.78rem; font-weight:600; color:var(--text-bright); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-family:'Rajdhani',sans-serif; letter-spacing:0.04em; }
-.char-sub { font-size:0.6rem; color:var(--text-mid); margin-top:1px; }
+/* ── MODAL ── */
+.modal-backdrop{position:fixed;inset:0;z-index:10000;background:rgba(2,3,12,0.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.modal-backdrop.open{opacity:1;pointer-events:all}
+.modal{background:#0c0f1e;border:1px solid var(--modal-ac,#00e5ff);border-radius:6px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;position:relative;clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);transform:translateY(20px);transition:transform 0.3s;box-shadow:0 0 0 1px var(--modal-ac,#00e5ff),0 30px 80px rgba(0,0,0,0.8),0 0 60px -15px var(--modal-ac,#00e5ff)}
+.modal-backdrop.open .modal{transform:translateY(0)}
+.modal-stripe{height:2px;background:linear-gradient(90deg,var(--modal-ac),transparent 70%)}
+.modal-corner{position:absolute;top:2px;right:0;width:22px;height:22px;background:var(--modal-ac);clip-path:polygon(100% 0,0 0,100% 100%);opacity:0.8}
+.modal-close{position:absolute;top:14px;right:18px;z-index:10;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);color:var(--text-mid);font-size:1rem;width:30px;height:30px;border-radius:3px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.2s,color 0.2s;font-family:'Orbitron',monospace}
+.modal-close:hover{background:rgba(255,255,255,0.15);color:#fff}
+.modal-header{padding:1.2rem 1.4rem 0.8rem;border-bottom:1px solid rgba(255,255,255,0.06)}
+.modal-game-name{font-family:'Orbitron',monospace;font-size:1rem;font-weight:700;letter-spacing:0.08em;color:var(--modal-ac);text-shadow:0 0 15px var(--modal-ac);margin-bottom:0.2rem}
+.modal-patch-name{font-size:0.75rem;color:var(--text-mid);font-style:italic}
+.modal-body{padding:1.2rem 1.4rem}
+.phases{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+@media(max-width:480px){.phases{grid-template-columns:1fr}}
+.phase-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:4px;overflow:hidden;transition:border-color 0.2s}
+.phase-card:hover{border-color:rgba(255,255,255,0.15)}
+.phase-header{padding:0.5rem 0.75rem;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between}
+.phase-label{font-family:'Orbitron',monospace;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;color:var(--modal-ac)}
+.phase-dates{font-family:'Orbitron',monospace;font-size:0.52rem;color:var(--text-dim);letter-spacing:0.06em}
+.phase-chars{padding:0.75rem;display:flex;flex-direction:column;gap:0.55rem}
+.char-row{display:flex;align-items:center;gap:0.6rem}
+.char-rarity{font-family:'Orbitron',monospace;font-size:0.55rem;font-weight:700;padding:2px 6px;border-radius:2px;flex-shrink:0;letter-spacing:0.06em}
+.rarity-5,.rarity-6,.rarity-s{background:rgba(255,177,0,0.15);color:#ffb100;border:1px solid rgba(255,177,0,0.3)}
+.rarity-4,.rarity-a{background:rgba(160,100,255,0.15);color:#a064ff;border:1px solid rgba(160,100,255,0.3)}
+.rarity-rerun{background:rgba(100,180,255,0.12);color:#64b4ff;border:1px solid rgba(100,180,255,0.25);font-size:0.48rem}
+.char-info{flex:1;min-width:0}
+.char-name{font-size:0.78rem;font-weight:600;color:var(--text-bright);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;font-family:'Rajdhani',sans-serif;letter-spacing:0.04em}
+.char-sub{font-size:0.6rem;color:var(--text-mid);margin-top:1px}
+.phase-unannounced{padding:0.75rem;text-align:center}
+.unannounced-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Orbitron',monospace;font-size:0.55rem;letter-spacing:0.1em;color:var(--text-dim);border:1px solid rgba(255,255,255,0.08);padding:6px 12px;border-radius:3px}
 
-.phase-unannounced { padding:0.75rem; text-align:center; }
-.unannounced-badge { display:inline-flex; align-items:center; gap:6px; font-family:'Orbitron',monospace; font-size:0.55rem; letter-spacing:0.1em; color:var(--text-dim); border:1px solid rgba(255,255,255,0.08); padding:6px 12px; border-radius:3px; }
-
-/* FOOTER */
-.footer { margin-top:4rem; text-align:center; padding-top:2rem; border-top:1px solid var(--border); position:relative; }
-.footer::before { content:''; position:absolute; top:-1px; left:50%; transform:translateX(-50%); width:100px; height:1px; background:var(--cyan); box-shadow:0 0 10px var(--cyan); }
-.footer-status { display:inline-flex; align-items:center; gap:8px; margin-bottom:0.8rem; font-family:'Orbitron',monospace; font-size:0.58rem; letter-spacing:0.14em; color:var(--text-mid); }
-.live-dot { width:7px; height:7px; border-radius:50%; background:#4ade80; box-shadow:0 0 8px #4ade80; animation:live-pulse 1.4s ease-in-out infinite; }
-.footer p { font-size:0.67rem; color:var(--text-dim); letter-spacing:0.03em; line-height:1.8; }
+/* ── FOOTER ── */
+.footer{margin-top:4rem;text-align:center;padding-top:2rem;border-top:1px solid var(--border);position:relative}
+.footer::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:100px;height:1px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
+.footer-status{display:inline-flex;align-items:center;gap:8px;margin-bottom:0.8rem;font-family:'Orbitron',monospace;font-size:0.58rem;letter-spacing:0.14em;color:var(--text-mid)}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#4ade80;box-shadow:0 0 8px #4ade80;animation:live-pulse 1.4s ease-in-out infinite}
+.footer p{font-size:0.67rem;color:var(--text-dim);letter-spacing:0.03em;line-height:1.8}
 
 @media(max-width:640px){
-  .page { padding:2rem 1rem 4rem; }
-  .grid { grid-template-columns:repeat(auto-fit,minmax(165px,1fr)); gap:0.9rem; }
-  .card-banner { height:130px; }
-  .seg-num { font-size:1.1rem; }
-  .header h1 { font-size:1.5rem; }
+  .page{padding:2rem 1rem 4rem}
+  .grid{grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:0.9rem}
+  .current-grid{grid-template-columns:1fr}
+  .card-banner{height:130px}
+  .seg-num{font-size:1.1rem}
+  .header h1{font-size:1.5rem}
 }
 </style>
 </head>
@@ -216,6 +241,8 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
 <div class="orb orb-3"></div>
 
 <div class="page">
+
+  <!-- HEADER -->
   <header class="header">
     <div class="eyebrow">// SISTEMA ACTIVO · TIEMPO REAL //</div>
     <h1 data-text="GACHA PATCH COUNTDOWN"><span class="hl-c">GACHA</span> PATCH <span class="hl-g">COUNTDOWN</span></h1>
@@ -224,11 +251,27 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
   </header>
 
   <div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
+
+  <!-- PRÓXIMOS PARCHES -->
+  <div class="section-title">
+    <span class="section-title-text">Próximos Parches</span>
+    <div class="section-title-line"></div>
+    <span class="section-title-badge">⏱ COUNTDOWN</span>
+  </div>
   <main class="grid" id="grid"></main>
 
+  <!-- BANNERS ACTUALES -->
+  <div class="section-title">
+    <span class="section-title-text">Banners Activos Ahora</span>
+    <div class="section-title-line"></div>
+    <span class="section-title-badge">🔴 EN VIVO</span>
+  </div>
+  <section class="current-grid" id="currentGrid"></section>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-status"><span class="live-dot"></span>ACTUALIZANDO EN TIEMPO REAL · CLT UTC-4</div>
-    <p>Haz clic en cualquier juego para ver sus banners del parche. Las fechas estimadas pueden cambiar según anuncios oficiales.</p>
+    <p>Haz clic en cualquier juego para ver los banners del próximo parche.</p>
     <p style="margin-top:0.9rem;font-size:0.58rem;opacity:0.3;">Honkai: Star Rail © HoYoverse · Wuthering Waves © Kuro Games · Arknights: Endfield © Gryphline · Neverness to Everness © Hotta Studio · Zenless Zone Zero © HoYoverse · Genshin Impact © HoYoverse</p>
   </footer>
 </div>
@@ -248,6 +291,9 @@ body::after { content:''; position:fixed; inset:0; background:repeating-linear-g
 </div>
 
 <script>
+/* ─────────────────────────────────────────
+   DATA
+───────────────────────────────────────── */
 const GAMES = [
   {
     id:'hsr', name:'Honkai: Star Rail', shortName:'HSR', version:'4.3',
@@ -255,21 +301,23 @@ const GAMES = [
     target:new Date('2026-06-01T23:00:00-04:00'),
     releaseStr:'1 JUN 2026 · 23:00 CLT', confirmed:true,
     phases:[
-      {
-        label:'FASE 1', dates:'1 Jun – 24 Jun CLT',
-        chars:[
-          {name:'Mortenax Blade',sub:'★★★★★ · Fuego · Nihilidad',rarity:'5',nuevo:true},
-          {name:'Yao Guang',sub:'★★★★★ · Físico · Elación',rarity:'rerun',nuevo:false}
-        ]
-      },
-      {
-        label:'FASE 2', dates:'24 Jun – 14 Jul CLT',
-        chars:[
-          {name:'Phainon',sub:'★★★★★ · Rerun',rarity:'rerun',nuevo:false},
-          {name:'Cyrene',sub:'★★★★★ · Rerun',rarity:'rerun',nuevo:false}
-        ]
-      }
-    ]
+      { label:'FASE 1', dates:'1 Jun – 24 Jun CLT', chars:[
+        {name:'Mortenax Blade',sub:'★★★★★ · Fuego · Nihilidad',rarity:'5',nuevo:true},
+        {name:'Yao Guang',sub:'★★★★★ · Físico · Elación (Rerun)',rarity:'rerun',nuevo:false}
+      ]},
+      { label:'FASE 2', dates:'24 Jun – 14 Jul CLT', chars:[
+        {name:'Phainon',sub:'★★★★★ · Rerun',rarity:'rerun',nuevo:false},
+        {name:'Cyrene',sub:'★★★★★ · Rerun',rarity:'rerun',nuevo:false}
+      ]}
+    ],
+    current:{ version:'4.2', phases:[
+      { label:'FASE 2 ACTIVA', end:'1 Jun 2026', chars:[
+        {name:'Evanescia',sub:'Physical · Elación',rarity:'gold',nuevo:true},
+        {name:'Tribbie',sub:'Quantum · Harmonía (Rerun)',rarity:'gold',nuevo:false},
+        {name:'Sunday',sub:'Imaginación · Harmonía (Rerun)',rarity:'gold',nuevo:false},
+        {name:'Feixiao',sub:'Viento · La Cacería (Rerun)',rarity:'gold',nuevo:false}
+      ]}
+    ]}
   },
   {
     id:'wuwa', name:'Wuthering Waves', shortName:'WuWa', version:'3.4',
@@ -277,20 +325,21 @@ const GAMES = [
     target:new Date('2026-06-07T20:00:00-07:00'),
     releaseStr:'7 JUN 2026 · 23:00 CLT', confirmed:false,
     phases:[
-      {
-        label:'FASE 1', dates:'8 Jun – ~29 Jun CLT',
-        chars:[
-          {name:'Lucilla',sub:'★★★★★ · Glacio · Rectifier',rarity:'5',nuevo:true},
-          {name:'Lucy (Collab)',sub:'★★★★★ · Cyberpunk: Edgerunners',rarity:'5',nuevo:true}
-        ]
-      },
-      {
-        label:'FASE 2', dates:'~29 Jun – ~20 Jul CLT',
-        chars:[
-          {name:'Rebecca (Collab)',sub:'★★★★★ · Cyberpunk: Edgerunners',rarity:'5',nuevo:true}
-        ]
-      }
-    ]
+      { label:'FASE 1', dates:'8 Jun – ~29 Jun CLT', chars:[
+        {name:'Lucilla',sub:'★★★★★ · Glacio · Rectifier (Nuevo)',rarity:'5',nuevo:true},
+        {name:'Lucy (Collab)',sub:'★★★★★ · Cyberpunk Edgerunners',rarity:'5',nuevo:true}
+      ]},
+      { label:'FASE 2', dates:'~29 Jun – ~20 Jul CLT', chars:[
+        {name:'Rebecca (Collab)',sub:'★★★★★ · Cyberpunk Edgerunners',rarity:'5',nuevo:true}
+      ]}
+    ],
+    current:{ version:'3.3', phases:[
+      { label:'FASE 2 ACTIVA', end:'11 Jun 2026', chars:[
+        {name:'Denia',sub:'Fusión · Rectifier (Nuevo)',rarity:'gold',nuevo:true},
+        {name:'Chisa',sub:'Havoc · Broadblade (Rerun)',rarity:'gold',nuevo:false},
+        {name:'Phrolova',sub:'Havoc · Rectifier (Rerun)',rarity:'gold',nuevo:false}
+      ]}
+    ]}
   },
   {
     id:'akef', name:'Arknights: Endfield', shortName:'Endfield', version:'1.3',
@@ -298,19 +347,18 @@ const GAMES = [
     target:new Date('2026-06-05T12:00:00+08:00'),
     releaseStr:'5 JUN 2026 · 00:00 CLT', confirmed:true,
     phases:[
-      {
-        label:'FASE 1', dates:'5 Jun – 26 Jun CLT',
-        chars:[
-          {name:'Mi Fu',sub:'6★ · Físico · Guard · Capitana de Wuling',rarity:'6',nuevo:true}
-        ]
-      },
-      {
-        label:'FASE 2', dates:'26 Jun – ~10 Jul CLT',
-        chars:[
-          {name:'Camille',sub:'6★ · Calor · Vanguard · Primer operador masculino',rarity:'6',nuevo:true}
-        ]
-      }
-    ]
+      { label:'FASE 1', dates:'5 Jun – 26 Jun CLT', chars:[
+        {name:'Mi Fu',sub:'6★ · Físico · Guard',rarity:'5',nuevo:true}
+      ]},
+      { label:'FASE 2', dates:'26 Jun – ~10 Jul CLT', chars:[
+        {name:'Camille',sub:'6★ · Calor · Vanguard (1er operador masculino)',rarity:'5',nuevo:true}
+      ]}
+    ],
+    current:{ version:'1.2', phases:[
+      { label:'PRÓXIMAMENTE', end:'5 Jun 2026', chars:[
+        {name:'Mi Fu',sub:'6★ · Disponible desde Fase 1 (Jun 5)',rarity:'gold',nuevo:true}
+      ]}
+    ]}
   },
   {
     id:'nte', name:'Neverness to Everness', shortName:'NTE', version:'1.1',
@@ -318,19 +366,18 @@ const GAMES = [
     target:new Date('2026-06-03T16:00:00-07:00'),
     releaseStr:'3 JUN 2026 · 19:00 CLT', confirmed:true,
     phases:[
-      {
-        label:'FASE 1', dates:'3 Jun – 24 Jun CLT',
-        chars:[
-          {name:'Lacrimosa',sub:'S-Rank · Caos · DPS · Mecánica Nightmare',rarity:'s',nuevo:true}
-        ]
-      },
-      {
-        label:'FASE 2', dates:'24 Jun – 8 Jul CLT',
-        chars:[
-          {name:'Chaos',sub:'S-Rank · Lakshana · ETD 6º Pelotón',rarity:'s',nuevo:true}
-        ]
-      }
-    ]
+      { label:'FASE 1', dates:'3 Jun – 24 Jun CLT', chars:[
+        {name:'Lacrimosa',sub:'S-Rank · Caos · DPS',rarity:'5',nuevo:true}
+      ]},
+      { label:'FASE 2', dates:'24 Jun – 8 Jul CLT', chars:[
+        {name:'Chaos',sub:'S-Rank · Lakshana · ETD 6º Pelotón',rarity:'5',nuevo:true}
+      ]}
+    ],
+    current:{ version:'1.0', phases:[
+      { label:'FASE 2 ACTIVA', end:'3 Jun 2026', chars:[
+        {name:'Hotori',sub:'S-Rank · Cosmos · Manipulación del tiempo',rarity:'gold',nuevo:true}
+      ]}
+    ]}
   },
   {
     id:'zzz', name:'Zenless Zone Zero', shortName:'ZZZ', version:'3.0',
@@ -338,20 +385,20 @@ const GAMES = [
     target:new Date('2026-06-16T20:00:00-07:00'),
     releaseStr:'16 JUN 2026 · 23:00 CLT', confirmed:true,
     phases:[
-      {
-        label:'FASE 1', dates:'17 Jun – ~8 Jul CLT',
-        chars:[
-          {name:'Velina Airgid',sub:'S-Rank · Viento · Anomalía · 1er Agente Viento',rarity:'s',nuevo:true},
-          {name:'Pyrois',sub:'S-Rank · Éter · Ataque · Forma combate de Phaethon',rarity:'s',nuevo:true}
-        ]
-      },
-      {
-        label:'FASE 2', dates:'~8 Jul – ~29 Jul CLT',
-        chars:[
-          {name:'Norma Hollowell',sub:'S-Rank · Fuego · Stun',rarity:'s',nuevo:true}
-        ]
-      }
-    ]
+      { label:'FASE 1', dates:'17 Jun – ~8 Jul CLT', chars:[
+        {name:'Velina Airgid',sub:'S-Rank · Viento · Anomalía (1er Agente Viento)',rarity:'s',nuevo:true},
+        {name:'Pyrois',sub:'S-Rank · Éter · Forma combate de Phaethon',rarity:'s',nuevo:true}
+      ]},
+      { label:'FASE 2', dates:'~8 Jul – ~29 Jul CLT', chars:[
+        {name:'Norma Hollowell',sub:'S-Rank · Fuego · Stun',rarity:'s',nuevo:true}
+      ]}
+    ],
+    current:{ version:'2.8', phases:[
+      { label:'FASE 2 ACTIVA', end:'16 Jun 2026', chars:[
+        {name:'Starlight Billy',sub:'S-Rank · Físico · Ruptura (Nuevo)',rarity:'gold',nuevo:true},
+        {name:'Orphie & Magus',sub:'S-Rank · Fuego · Ataque (Rerun)',rarity:'gold',nuevo:false}
+      ]}
+    ]}
   },
   {
     id:'genshin', name:'Genshin Impact', shortName:'Genshin', version:'6.7',
@@ -359,25 +406,33 @@ const GAMES = [
     target:new Date('2026-07-01T20:00:00-07:00'),
     releaseStr:'1 JUL 2026 · 23:00 CLT', confirmed:false,
     phases:[
-      {
-        label:'FASE 1', dates:'~1 Jul – ~22 Jul CLT',
-        chars:[
-          {name:'Sandrone',sub:'★★★★★ · Electro/Cryo · Debut · Harbinger',rarity:'5',nuevo:true},
-          {name:'Columbina',sub:'★★★★★ · Primer Rerun',rarity:'rerun',nuevo:false}
-        ]
-      },
-      {
-        label:'FASE 2', dates:'~22 Jul – ~12 Ago CLT',
-        chars:[
-          {name:'Raiden Shogun',sub:'★★★★★ · Electro · Rerun',rarity:'rerun',nuevo:false},
-          {name:'Citlali',sub:'★★★★★ · Cryo · Rerun',rarity:'rerun',nuevo:false}
-        ]
-      }
-    ]
+      { label:'FASE 1', dates:'~1 Jul – ~22 Jul CLT', chars:[
+        {name:'Sandrone',sub:'★★★★★ · Debut · Harbinger (La Marionetta)',rarity:'5',nuevo:true},
+        {name:'Columbina',sub:'★★★★★ · Primer Rerun',rarity:'rerun',nuevo:false}
+      ]},
+      { label:'FASE 2', dates:'~22 Jul – ~12 Ago CLT', chars:[
+        {name:'Raiden Shogun',sub:'★★★★★ · Electro · Rerun',rarity:'rerun',nuevo:false},
+        {name:'Citlali',sub:'★★★★★ · Cryo · Rerun',rarity:'rerun',nuevo:false}
+      ]}
+    ],
+    current:{ version:'6.6', phases:[
+      { label:'FASE 1 ACTIVA', end:'9 Jun 2026', chars:[
+        {name:'Nicole Reeyn',sub:'★★★★★ · Pyro · Catalyst (Debut)',rarity:'gold',nuevo:true},
+        {name:'Durin',sub:'★★★★★ · Rerun',rarity:'gold',nuevo:false},
+        {name:'Prune',sub:'★★★★ · Anemo · Catalyst (Debut)',rarity:'purple',nuevo:true}
+      ]},
+      { label:'FASE 2', end:'30 Jun 2026', chars:[
+        {name:'Lohen',sub:'★★★★★ · Cryo · Polearm (Debut)',rarity:'gold',nuevo:true},
+        {name:'Mavuika',sub:'★★★★★ · Pyro · Claymore (Rerun)',rarity:'gold',nuevo:false}
+      ]}
+    ]}
   }
 ];
 
-function pad(n){return String(n).padStart(2,'0');}
+/* ─────────────────────────────────────────
+   HELPERS
+───────────────────────────────────────── */
+function pad(n){return String(n).padStart(2,'0')}
 function getCountdown(t){
   const diff=t.getTime()-Date.now();
   if(diff<=0)return null;
@@ -394,18 +449,19 @@ function cdHTML(g,c){
     <div class="seg"><span class="seg-num" id="${g.id}-s">${pad(c.sec)}</span><span class="seg-lbl">Seg</span></div>
   </div>`;
 }
+
+/* ─────────────────────────────────────────
+   COUNTDOWN CARDS
+───────────────────────────────────────── */
 function buildCard(g){
   const c=getCountdown(g.target);
   const est=g.confirmed?'':`<span class="release-est">(est.)</span>`;
   return`<div class="card" style="--ac:${g.accent}" onclick="openModal('${g.id}')">
-    <div class="card-stripe"></div>
-    <div class="card-corner"></div>
+    <div class="card-stripe"></div><div class="card-corner"></div>
     <div class="click-hint">▶ VER BANNERS</div>
     <div class="card-banner">
       <img class="banner-img" src="${g.img}" alt="${g.name}">
-      <div class="banner-hex"></div>
-      <div class="banner-fade"></div>
-      <div class="banner-glow"></div>
+      <div class="banner-hex"></div><div class="banner-fade"></div><div class="banner-glow"></div>
       <div class="banner-info">
         <div class="game-name-text">${g.name}</div>
         <div class="ver-tag"><span class="ver-dot"></span>VER. ${g.version}</div>
@@ -420,8 +476,54 @@ function buildCard(g){
   </div>`;
 }
 
-// Render cards
+/* ─────────────────────────────────────────
+   CURRENT BANNER CARDS
+───────────────────────────────────────── */
+function buildCurrentCard(g){
+  const cur=g.current;
+  if(!cur)return'';
+  let phasesHTML='';
+  cur.phases.forEach(ph=>{
+    let charsHTML=ph.chars.map(ch=>{
+      const badge=ch.nuevo
+        ?`<span class="cb-new-badge">NEW</span>`
+        :`<span class="cb-rerun-badge">RERUN</span>`;
+      return`<div class="cb-char ${ch.rarity==='gold'?'rarity-gold':'rarity-purple'}">
+        <span class="cb-char-star">${ch.rarity==='gold'?'★':'◆'}</span>
+        <div>
+          <div class="cb-char-name">${ch.name}${badge}</div>
+          <div class="cb-char-sub">${ch.sub}</div>
+        </div>
+      </div>`;
+    }).join('');
+    phasesHTML+=`<div class="cb-phase">
+      <div class="cb-phase-header">
+        <span class="cb-phase-label">${ph.label}</span>
+        <span class="cb-phase-end"><span class="cb-end-dot"></span>Hasta ${ph.end}</span>
+      </div>
+      <div class="cb-chars">${charsHTML}</div>
+    </div>`;
+  });
+
+  return`<div class="cb-card" style="--cb-ac:${g.accent};position:relative">
+    <div class="cb-stripe"></div>
+    <div class="cb-corner"></div>
+    <div class="cb-inner">
+      <div class="cb-game-row">
+        <span class="cb-game-dot"></span>
+        <span class="cb-game-name">${g.name}</span>
+        <span class="cb-version">v${cur.version}</span>
+      </div>
+      <div class="cb-phases">${phasesHTML}</div>
+    </div>
+  </div>`;
+}
+
+/* ─────────────────────────────────────────
+   RENDER
+───────────────────────────────────────── */
 document.getElementById('grid').innerHTML=GAMES.map(buildCard).join('');
+document.getElementById('currentGrid').innerHTML=GAMES.map(buildCurrentCard).join('');
 
 // Ticker
 const items=[...GAMES,...GAMES].map(g=>`<span class="ticker-item">${g.shortName} <b>v${g.version}</b> · ${g.releaseStr}</span>`);
@@ -445,78 +547,41 @@ setInterval(()=>{
   });
 },1000);
 
-// ── MODAL ──
-function rarityClass(r){
-  if(r==='6')return'rarity-6';
-  if(r==='5')return'rarity-5';
-  if(r==='s')return'rarity-s';
-  if(r==='4'||r==='a')return'rarity-4 rarity-a';
-  if(r==='rerun')return'rarity-rerun';
-  return'rarity-4';
-}
-function rarityLabel(r,nuevo){
-  if(r==='rerun')return'RERUN';
-  if(r==='6')return'6★ NUEVO';
-  if(r==='5')return nuevo?'5★ NUEVO':'5★';
-  if(r==='s')return nuevo?'S-RANK NUEVO':'S-RANK';
-  if(r==='4'||r==='a')return nuevo?'4★ NUEVO':'4★';
-  return r.toUpperCase();
-}
+/* ─────────────────────────────────────────
+   MODAL
+───────────────────────────────────────── */
+function rarityClass(r){if(r==='rerun')return'rarity-rerun';if(r==='6'||r==='5'||r==='s')return'rarity-5';if(r==='4'||r==='a')return'rarity-4';return'rarity-4';}
+function rarityLabel(r,nuevo){if(r==='rerun')return'RERUN';if(r==='6')return nuevo?'6★ NUEVO':'6★';if(r==='5')return nuevo?'5★ NUEVO':'5★';if(r==='s')return nuevo?'S NUEVO':'S-RANK';if(r==='4'||r==='a')return nuevo?'4★ NUEVO':'4★';return r.toUpperCase();}
 
 function openModal(id){
-  const g=GAMES.find(x=>x.id===id);
-  if(!g)return;
+  const g=GAMES.find(x=>x.id===id);if(!g)return;
   const modal=document.getElementById('modal');
   modal.style.setProperty('--modal-ac',g.accent);
   document.getElementById('modalGameName').textContent=g.name+' · v'+g.version;
-  document.getElementById('modalPatchName').textContent='"'+g.patchName+'"  ·  '+g.releaseStr+(g.confirmed?'':' (estimado)');
-
+  document.getElementById('modalPatchName').textContent='"'+g.patchName+'" · '+g.releaseStr+(g.confirmed?'':' (estimado)');
   let html='<div class="phases">';
   g.phases.forEach(ph=>{
-    html+=`<div class="phase-card">
-      <div class="phase-header">
-        <span class="phase-label">${ph.label}</span>
-        <span class="phase-dates">${ph.dates}</span>
-      </div>`;
+    html+=`<div class="phase-card"><div class="phase-header"><span class="phase-label">${ph.label}</span><span class="phase-dates">${ph.dates}</span></div>`;
     if(ph.chars&&ph.chars.length){
       html+='<div class="phase-chars">';
       ph.chars.forEach(ch=>{
-        html+=`<div class="char-row">
-          <span class="char-rarity ${rarityClass(ch.rarity)}">${rarityLabel(ch.rarity,ch.nuevo)}</span>
-          <div class="char-info">
-            <div class="char-name">${ch.name}</div>
-            <div class="char-sub">${ch.sub}</div>
-          </div>
-        </div>`;
+        html+=`<div class="char-row"><span class="char-rarity ${rarityClass(ch.rarity)}">${rarityLabel(ch.rarity,ch.nuevo)}</span><div class="char-info"><div class="char-name">${ch.name}</div><div class="char-sub">${ch.sub}</div></div></div>`;
       });
       html+='</div>';
     } else {
-      html+=`<div class="phase-unannounced"><span class="unannounced-badge">⏳ &nbsp;Por anunciar</span></div>`;
+      html+=`<div class="phase-unannounced"><span class="unannounced-badge">⏳ Por anunciar</span></div>`;
     }
     html+='</div>';
   });
   html+='</div>';
-
-  // disclaimer if estimated
-  if(!g.confirmed){
-    html+=`<p style="margin-top:1rem;font-size:0.6rem;color:var(--text-dim);font-family:'Orbitron',monospace;letter-spacing:0.06em;text-align:center">⚠ Información basada en leaks y patrones de versiones anteriores. Sujeto a cambios.</p>`;
-  }
-
+  if(!g.confirmed)html+=`<p style="margin-top:1rem;font-size:0.6rem;color:var(--text-dim);font-family:'Orbitron',monospace;letter-spacing:0.06em;text-align:center">⚠ Info basada en leaks y patrones previos. Sujeto a cambios.</p>`;
   document.getElementById('modalBody').innerHTML=html;
   document.getElementById('modalBackdrop').classList.add('open');
   document.body.style.overflow='hidden';
 }
-
-function closeModal(){
-  document.getElementById('modalBackdrop').classList.remove('open');
-  document.body.style.overflow='';
-}
-
-function closeModalOutside(e){
-  if(e.target===document.getElementById('modalBackdrop')) closeModal();
-}
-
-document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeModal(); });
+function closeModal(){document.getElementById('modalBackdrop').classList.remove('open');document.body.style.overflow='';}
+function closeModalOutside(e){if(e.target===document.getElementById('modalBackdrop'))closeModal();}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal();});
 </script>
 </body>
 </html>
