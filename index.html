@@ -26,7 +26,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .orb-3{width:280px;height:280px;background:#9d174d;opacity:0.11;top:45%;left:50%;transform:translate(-50%,-50%)}
 .page{position:relative;z-index:1;max-width:1200px;margin:0 auto;padding:3rem 1.5rem 5rem}
 
-/* ── HEADER ── */
+/* HEADER */
 .header{text-align:center;margin-bottom:3.5rem}
 .eyebrow{font-family:'Orbitron',monospace;font-size:0.58rem;letter-spacing:0.22em;color:var(--cyan);border:1px solid rgba(0,229,255,0.25);padding:4px 14px;border-radius:2px;display:inline-block;margin-bottom:1.2rem;animation:eyebrow-pulse 3s ease-in-out infinite}
 @keyframes eyebrow-pulse{0%,100%{border-color:rgba(0,229,255,0.25)}50%{border-color:rgba(0,229,255,0.6);box-shadow:0 0 10px rgba(0,229,255,0.15)}}
@@ -44,7 +44,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .deco-bar{width:80px;height:1px;background:linear-gradient(90deg,transparent,var(--cyan),transparent)}
 .deco-gem{width:6px;height:6px;background:var(--cyan);transform:rotate(45deg);box-shadow:0 0 8px var(--cyan)}
 
-/* ── TICKER ── */
+/* TICKER */
 .ticker-wrap{overflow:hidden;border-top:1px solid rgba(0,229,255,0.12);border-bottom:1px solid rgba(0,229,255,0.12);padding:7px 0;margin-bottom:2.5rem;position:relative}
 .ticker-wrap::before{content:'';position:absolute;top:0;bottom:0;left:0;width:50px;background:linear-gradient(90deg,var(--bg-page),transparent);z-index:2}
 .ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;right:0;width:50px;background:linear-gradient(-90deg,var(--bg-page),transparent);z-index:2}
@@ -53,27 +53,16 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .ticker-item b{color:var(--gold);font-weight:500}
 @keyframes tick{to{transform:translateX(-50%)}}
 
-/* ── SECTION TITLE ── */
-.section-title{
-  display:flex;align-items:center;gap:1rem;
-  margin-bottom:1.5rem;margin-top:3.5rem;
-}
-.section-title-text{
-  font-family:'Orbitron',monospace;font-size:0.72rem;font-weight:700;
-  letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mid);
-  white-space:nowrap;
-}
+/* SECTION TITLE */
+.section-title{display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;margin-top:3.5rem}
+.section-title-text{font-family:'Orbitron',monospace;font-size:0.72rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:var(--text-mid);white-space:nowrap}
 .section-title-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(255,255,255,0.08),transparent)}
-.section-title-badge{
-  font-family:'Orbitron',monospace;font-size:0.52rem;letter-spacing:0.12em;
-  color:var(--cyan);border:1px solid rgba(0,229,255,0.3);
-  padding:3px 10px;border-radius:2px;white-space:nowrap;flex-shrink:0;
-}
+.section-title-badge{font-family:'Orbitron',monospace;font-size:0.52rem;letter-spacing:0.12em;color:var(--cyan);border:1px solid rgba(0,229,255,0.3);padding:3px 10px;border-radius:2px;white-space:nowrap;flex-shrink:0}
 
-/* ── COUNTDOWN GRID ── */
+/* COUNTDOWN GRID */
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1.2rem}
 
-/* ── COUNTDOWN CARD ── */
+/* COUNTDOWN CARD */
 .card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;overflow:hidden;position:relative;transition:transform 0.3s,box-shadow 0.3s,border-color 0.3s;clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,0 100%);cursor:pointer}
 .card:hover{transform:translateY(-6px);border-color:var(--ac);box-shadow:0 0 0 1px var(--ac),0 22px 60px rgba(0,0,0,0.65),0 0 35px -8px var(--ac)}
 .card-stripe{height:2px;background:linear-gradient(90deg,var(--ac),transparent 70%)}
@@ -110,81 +99,56 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .status-soon{font-family:'Orbitron',monospace;font-size:0.64rem;font-weight:600;letter-spacing:0.12em;text-align:center;padding:0.5rem 0;color:#fbbf24;text-shadow:0 0 12px rgba(251,191,36,0.6)}
 @keyframes live-pulse{0%,100%{opacity:1}50%{opacity:0.45}}
 
-/* ══════════════════════════════
-   BANNERS ACTUALES
-══════════════════════════════ */
-.current-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-  gap:1rem;
-}
+/* ══ BANNERS ACTUALES ══ */
+.current-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:1rem}
 
-.cb-card{
-  background:var(--bg-card);
-  border:1px solid var(--border);
-  border-radius:4px;overflow:hidden;
-  transition:border-color 0.25s,box-shadow 0.25s;
-  clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%);
-}
-.cb-card:hover{
-  border-color:var(--cb-ac);
-  box-shadow:0 0 0 1px var(--cb-ac),0 12px 40px rgba(0,0,0,0.5),0 0 25px -8px var(--cb-ac);
-}
+.cb-card{background:var(--bg-card);border:1px solid var(--border);border-radius:4px;overflow:hidden;position:relative;transition:border-color 0.25s,box-shadow 0.25s;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,0 100%)}
+.cb-card:hover{border-color:var(--cb-ac);box-shadow:0 0 0 1px var(--cb-ac),0 12px 40px rgba(0,0,0,0.5),0 0 25px -8px var(--cb-ac)}
 .cb-stripe{height:2px;background:linear-gradient(90deg,var(--cb-ac),transparent 70%)}
-.cb-corner{position:absolute;top:2px;right:0;width:14px;height:14px;background:var(--cb-ac);clip-path:polygon(100% 0,0 0,100% 100%);opacity:0.7}
-
+.cb-corner-cut{position:absolute;top:2px;right:0;width:14px;height:14px;background:var(--cb-ac);clip-path:polygon(100% 0,0 0,100% 100%);opacity:0.7;z-index:3}
 .cb-inner{padding:0.85rem 1rem;position:relative}
 
-/* game label row */
-.cb-game-row{display:flex;align-items:center;gap:8px;margin-bottom:0.7rem}
-.cb-game-dot{width:8px;height:8px;border-radius:50%;background:var(--cb-ac);box-shadow:0 0 6px var(--cb-ac);flex-shrink:0}
-.cb-game-name{font-family:'Rajdhani',sans-serif;font-size:0.82rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-bright)}
-.cb-version{font-family:'Orbitron',monospace;font-size:0.52rem;color:var(--cb-ac);border:1px solid var(--cb-ac);padding:1px 7px;border-radius:2px;margin-left:auto;letter-spacing:0.08em;opacity:0.9}
+/* game row */
+.cb-game-row{display:flex;align-items:center;gap:8px;margin-bottom:0.75rem}
+.cb-dot{width:8px;height:8px;border-radius:50%;background:var(--cb-ac);box-shadow:0 0 6px var(--cb-ac);flex-shrink:0;animation:live-pulse 1.4s ease-in-out infinite}
+.cb-game-name{font-family:'Rajdhani',sans-serif;font-size:0.85rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-bright);flex:1}
+.cb-ver{font-family:'Orbitron',monospace;font-size:0.5rem;color:var(--cb-ac);border:1px solid var(--cb-ac);padding:2px 8px;border-radius:2px;letter-spacing:0.08em;white-space:nowrap}
 
-/* phases row */
-.cb-phases{display:flex;flex-direction:column;gap:0.5rem}
+/* banner blocks */
+.cb-banners{display:flex;flex-direction:column;gap:0.55rem}
 
-.cb-phase{
-  background:rgba(255,255,255,0.025);
-  border:1px solid rgba(255,255,255,0.06);
-  border-radius:3px;padding:0.5rem 0.65rem;
-}
-.cb-phase-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.35rem}
-.cb-phase-label{font-family:'Orbitron',monospace;font-size:0.5rem;font-weight:700;letter-spacing:0.12em;color:var(--cb-ac)}
-.cb-phase-end{
-  font-family:'Orbitron',monospace;font-size:0.46rem;letter-spacing:0.06em;
-  color:var(--text-dim);display:flex;align-items:center;gap:4px;
-}
-.cb-end-dot{width:4px;height:4px;border-radius:50%;background:#f87171;box-shadow:0 0 4px #f87171;animation:live-pulse 1.4s ease-in-out infinite}
+/* individual banner block */
+.cb-banner{background:rgba(255,255,255,0.025);border:1px solid rgba(255,255,255,0.07);border-radius:3px;overflow:hidden}
+.cb-banner-head{display:flex;align-items:center;justify-content:space-between;padding:0.4rem 0.65rem;background:rgba(255,255,255,0.03);border-bottom:1px solid rgba(255,255,255,0.06)}
+.cb-banner-label{font-family:'Orbitron',monospace;font-size:0.5rem;font-weight:700;letter-spacing:0.12em;color:var(--cb-ac)}
+.cb-banner-end{display:flex;align-items:center;gap:5px;font-family:'Orbitron',monospace;font-size:0.46rem;color:var(--text-dim);letter-spacing:0.05em}
+.cb-end-dot{width:4px;height:4px;border-radius:50%;background:#f87171;box-shadow:0 0 4px #f87171;animation:live-pulse 1.4s ease-in-out infinite;flex-shrink:0}
 
-.cb-chars{display:flex;flex-wrap:wrap;gap:4px}
-.cb-char{
-  display:inline-flex;align-items:center;gap:4px;
-  padding:3px 8px;border-radius:3px;
-  background:rgba(255,255,255,0.04);
-  border:1px solid rgba(255,255,255,0.08);
-  transition:border-color 0.2s;
-}
-.cb-card:hover .cb-char{border-color:rgba(255,255,255,0.14)}
-.cb-char-star{font-size:0.55rem}
-.rarity-gold .cb-char-star{color:#ffb100}
-.rarity-purple .cb-char-star{color:#a064ff}
-.cb-char-name{font-family:'Rajdhani',sans-serif;font-size:0.72rem;font-weight:600;letter-spacing:0.04em;color:var(--text-bright)}
-.cb-char-sub{font-size:0.55rem;color:var(--text-mid)}
-.cb-new-badge{
-  font-family:'Orbitron',monospace;font-size:0.42rem;font-weight:700;
-  letter-spacing:0.08em;padding:1px 5px;border-radius:2px;
-  background:rgba(0,229,255,0.12);color:var(--cyan);border:1px solid rgba(0,229,255,0.3);
-  margin-left:2px;
-}
-.cb-rerun-badge{
-  font-family:'Orbitron',monospace;font-size:0.42rem;
-  letter-spacing:0.08em;padding:1px 5px;border-radius:2px;
-  background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.2);
-  margin-left:2px;
-}
+/* collab tag on banner */
+.cb-collab-tag{display:inline-flex;align-items:center;gap:4px;font-family:'Orbitron',monospace;font-size:0.42rem;letter-spacing:0.08em;padding:1px 6px;border-radius:2px;background:rgba(255,200,0,0.12);color:#ffd700;border:1px solid rgba(255,200,0,0.3);margin-left:6px;white-space:nowrap}
 
-/* ── MODAL ── */
+.cb-chars{padding:0.5rem 0.65rem;display:flex;flex-direction:column;gap:0.4rem}
+.cb-char-row{display:flex;align-items:center;gap:7px}
+.cb-rarity{font-family:'Orbitron',monospace;font-size:0.5rem;font-weight:700;padding:2px 6px;border-radius:2px;flex-shrink:0;letter-spacing:0.05em;white-space:nowrap}
+.r-gold{background:rgba(255,177,0,0.15);color:#ffb100;border:1px solid rgba(255,177,0,0.3)}
+.r-purple{background:rgba(160,100,255,0.15);color:#a064ff;border:1px solid rgba(160,100,255,0.3)}
+.r-free{background:rgba(74,222,128,0.12);color:#4ade80;border:1px solid rgba(74,222,128,0.25)}
+.cb-char-info{flex:1;min-width:0}
+.cb-char-name{font-family:'Rajdhani',sans-serif;font-size:0.78rem;font-weight:600;letter-spacing:0.04em;color:var(--text-bright);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;display:flex;align-items:center;gap:5px}
+.cb-char-sub{font-size:0.58rem;color:var(--text-mid);margin-top:1px}
+.badge-new{font-family:'Orbitron',monospace;font-size:0.4rem;letter-spacing:0.08em;padding:1px 5px;border-radius:2px;background:rgba(0,229,255,0.12);color:var(--cyan);border:1px solid rgba(0,229,255,0.3);flex-shrink:0}
+.badge-rerun{font-family:'Orbitron',monospace;font-size:0.4rem;letter-spacing:0.08em;padding:1px 5px;border-radius:2px;background:rgba(100,180,255,0.1);color:#64b4ff;border:1px solid rgba(100,180,255,0.2);flex-shrink:0}
+.badge-free{font-family:'Orbitron',monospace;font-size:0.4rem;letter-spacing:0.08em;padding:1px 5px;border-radius:2px;background:rgba(74,222,128,0.12);color:#4ade80;border:1px solid rgba(74,222,128,0.25);flex-shrink:0}
+
+/* banner ended overlay */
+.cb-banner.is-ended{opacity:0.45;filter:grayscale(0.5)}
+.cb-banner.is-ended .cb-banner-head{background:rgba(255,255,255,0.02)}
+.cb-status-active{display:inline-flex;align-items:center;gap:4px;font-family:'Orbitron',monospace;font-size:0.44rem;letter-spacing:0.1em;color:#4ade80;flex-shrink:0}
+.cb-status-active-dot{width:5px;height:5px;border-radius:50%;background:#4ade80;box-shadow:0 0 5px #4ade80;animation:live-pulse 1.4s ease-in-out infinite;flex-shrink:0}
+.cb-status-ended{font-family:'Orbitron',monospace;font-size:0.44rem;letter-spacing:0.1em;color:var(--text-dim);flex-shrink:0}
+.cb-status-permanent{display:inline-flex;align-items:center;gap:4px;font-family:'Orbitron',monospace;font-size:0.44rem;letter-spacing:0.1em;color:var(--gold);flex-shrink:0}
+
+/* MODAL */
 .modal-backdrop{position:fixed;inset:0;z-index:10000;background:rgba(2,3,12,0.88);backdrop-filter:blur(8px);display:flex;align-items:center;justify-content:center;padding:1.5rem;opacity:0;pointer-events:none;transition:opacity 0.3s}
 .modal-backdrop.open{opacity:1;pointer-events:all}
 .modal{background:#0c0f1e;border:1px solid var(--modal-ac,#00e5ff);border-radius:6px;width:100%;max-width:620px;max-height:90vh;overflow-y:auto;position:relative;clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);transform:translateY(20px);transition:transform 0.3s;box-shadow:0 0 0 1px var(--modal-ac,#00e5ff),0 30px 80px rgba(0,0,0,0.8),0 0 60px -15px var(--modal-ac,#00e5ff)}
@@ -199,8 +163,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .modal-body{padding:1.2rem 1.4rem}
 .phases{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
 @media(max-width:480px){.phases{grid-template-columns:1fr}}
-.phase-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:4px;overflow:hidden;transition:border-color 0.2s}
-.phase-card:hover{border-color:rgba(255,255,255,0.15)}
+.phase-card{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.07);border-radius:4px;overflow:hidden}
 .phase-header{padding:0.5rem 0.75rem;background:rgba(255,255,255,0.04);border-bottom:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;justify-content:space-between}
 .phase-label{font-family:'Orbitron',monospace;font-size:0.6rem;font-weight:700;letter-spacing:0.12em;color:var(--modal-ac)}
 .phase-dates{font-family:'Orbitron',monospace;font-size:0.52rem;color:var(--text-dim);letter-spacing:0.06em}
@@ -216,7 +179,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 .phase-unannounced{padding:0.75rem;text-align:center}
 .unannounced-badge{display:inline-flex;align-items:center;gap:6px;font-family:'Orbitron',monospace;font-size:0.55rem;letter-spacing:0.1em;color:var(--text-dim);border:1px solid rgba(255,255,255,0.08);padding:6px 12px;border-radius:3px}
 
-/* ── FOOTER ── */
+/* FOOTER */
 .footer{margin-top:4rem;text-align:center;padding-top:2rem;border-top:1px solid var(--border);position:relative}
 .footer::before{content:'';position:absolute;top:-1px;left:50%;transform:translateX(-50%);width:100px;height:1px;background:var(--cyan);box-shadow:0 0 10px var(--cyan)}
 .footer-status{display:inline-flex;align-items:center;gap:8px;margin-bottom:0.8rem;font-family:'Orbitron',monospace;font-size:0.58rem;letter-spacing:0.14em;color:var(--text-mid)}
@@ -234,15 +197,10 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 </style>
 </head>
 <body>
-
 <div class="bg-grid"></div>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
-<div class="orb orb-3"></div>
+<div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
 
 <div class="page">
-
-  <!-- HEADER -->
   <header class="header">
     <div class="eyebrow">// SISTEMA ACTIVO · TIEMPO REAL //</div>
     <h1 data-text="GACHA PATCH COUNTDOWN"><span class="hl-c">GACHA</span> PATCH <span class="hl-g">COUNTDOWN</span></h1>
@@ -252,7 +210,6 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 
   <div class="ticker-wrap"><div class="ticker" id="ticker"></div></div>
 
-  <!-- PRÓXIMOS PARCHES -->
   <div class="section-title">
     <span class="section-title-text">Próximos Parches</span>
     <div class="section-title-line"></div>
@@ -260,7 +217,6 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
   </div>
   <main class="grid" id="grid"></main>
 
-  <!-- BANNERS ACTUALES -->
   <div class="section-title">
     <span class="section-title-text">Banners Activos Ahora</span>
     <div class="section-title-line"></div>
@@ -268,7 +224,6 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
   </div>
   <section class="current-grid" id="currentGrid"></section>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer-status"><span class="live-dot"></span>ACTUALIZANDO EN TIEMPO REAL · CLT UTC-4</div>
     <p>Haz clic en cualquier juego para ver los banners del próximo parche.</p>
@@ -279,8 +234,7 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 <!-- MODAL -->
 <div class="modal-backdrop" id="modalBackdrop" onclick="closeModalOutside(event)">
   <div class="modal" id="modal">
-    <div class="modal-stripe"></div>
-    <div class="modal-corner"></div>
+    <div class="modal-stripe"></div><div class="modal-corner"></div>
     <button class="modal-close" onclick="closeModal()">✕</button>
     <div class="modal-header">
       <div class="modal-game-name" id="modalGameName"></div>
@@ -291,123 +245,137 @@ body::after{content:'';position:fixed;inset:0;background:repeating-linear-gradie
 </div>
 
 <script>
-/* ─────────────────────────────────────────
-   DATA
-───────────────────────────────────────── */
 const GAMES = [
   {
-    id:'hsr', name:'Honkai: Star Rail', shortName:'HSR', version:'4.3',
-    patchName:'The Lethe Below the Living', accent:'#4f8ef7', img:'img/hsr.jpg',
-    target:new Date('2026-06-01T23:00:00-04:00'),
-    releaseStr:'1 JUN 2026 · 23:00 CLT', confirmed:true,
+    id:'hsr', name:'Honkai: Star Rail', shortName:'HSR', version:'4.4',
+    patchName:'Imagenae Holy Grail War', accent:'#4f8ef7', img:'img/hsr.jpg',
+    target: new Date('2026-07-14T22:00:00-07:00'),
+    releaseStr:'14 JUL 2026 · 23:00 CLT', confirmed:true,
     phases:[
-      { label:'FASE 1', dates:'1 Jun – 24 Jun CLT', chars:[
-        {name:'Mortenax Blade',sub:'★★★★★ · Fuego · Nihilidad',rarity:'5',nuevo:true},
-        {name:'Yao Guang',sub:'★★★★★ · Físico · Elación (Rerun)',rarity:'rerun',nuevo:false}
+      { label:'FASE 1', dates:'14 Jul – 5 Ago CLT', chars:[
+        {name:'Himeko • Nova',sub:'★★★★★ · Fuego · Erudición (NUEVO)',rarity:'5',nuevo:true}
       ]},
-      { label:'FASE 2', dates:'24 Jun – 14 Jul CLT', chars:[
-        {name:'Phainon',sub:'★★★★★ · Rerun',rarity:'rerun',nuevo:false},
-        {name:'Cyrene',sub:'★★★★★ · Rerun',rarity:'rerun',nuevo:false}
+      { label:'FASE 2 + COLLAB', dates:'24 Jul en adelante', chars:[
+        {name:'Rin Tohsaka',sub:'★★★★★ · Quantum · Erudición · Fate Collab (NUEVO)',rarity:'5',nuevo:true},
+        {name:'Gilgamesh',sub:'★★★★★ · Rayo · Destrucción · Fate Collab (NUEVO)',rarity:'5',nuevo:true}
       ]}
     ],
-    current:{ version:'4.2', phases:[
-      { label:'FASE 2 ACTIVA', end:'1 Jun 2026', chars:[
-        {name:'Evanescia',sub:'Physical · Elación',rarity:'gold',nuevo:true},
-        {name:'Tribbie',sub:'Quantum · Harmonía (Rerun)',rarity:'gold',nuevo:false},
-        {name:'Sunday',sub:'Imaginación · Harmonía (Rerun)',rarity:'gold',nuevo:false},
-        {name:'Feixiao',sub:'Viento · La Cacería (Rerun)',rarity:'gold',nuevo:false}
+    current:{ version:'4.3', banners:[
+      { label:'FASE 1', endDate:'2026-06-24', endStr:'24 Jun 2026', collab:false, chars:[
+        {name:'Mortenax Blade',sub:'★★★★★ · Fuego · Nihilidad (NUEVO)',rarity:'r-gold',nuevo:true},
+        {name:'Yao Guang',sub:'★★★★★ · Físico · Elación',rarity:'r-gold',nuevo:false,rerun:true}
+      ]},
+      { label:'FASE 2', endDate:'2026-07-14', endStr:'14 Jul 2026', collab:false, chars:[
+        {name:'Phainon',sub:'★★★★★ · Rerun',rarity:'r-gold',nuevo:false,rerun:true},
+        {name:'Cyrene',sub:'★★★★★ · Rerun',rarity:'r-gold',nuevo:false,rerun:true}
+      ]},
+      { label:'COLLAB · Fate/stay night P1', endDate:null, endStr:'Sin fecha de cierre', collab:true, collabName:'Fate/stay night', chars:[
+        {name:'Saber',sub:'★★★★★ · Viento · Destrucción · Collab',rarity:'r-gold',nuevo:false},
+        {name:'Archer',sub:'★★★★★ · Imaginación · La Cacería · Collab',rarity:'r-gold',nuevo:false}
       ]}
     ]}
   },
   {
-    id:'wuwa', name:'Wuthering Waves', shortName:'WuWa', version:'3.4',
-    patchName:'Cyberpunk: Edgerunners Collab', accent:'#00d4aa', img:'img/wuwa.jpg',
-    target:new Date('2026-06-07T20:00:00-07:00'),
-    releaseStr:'7 JUN 2026 · 23:00 CLT', confirmed:false,
+    id:'wuwa', name:'Wuthering Waves', shortName:'WuWa', version:'3.5',
+    patchName:'Mengzhou — Tierra de Xuanling', accent:'#00d4aa', img:'img/wuwa.jpg',
+    target: new Date('2026-07-10T20:00:00-07:00'), // ~10 Jul estimado, ciclo 42 días desde 3.4
+    releaseStr:'10 JUL 2026 · 23:00 CLT', confirmed:false,
     phases:[
-      { label:'FASE 1', dates:'8 Jun – ~29 Jun CLT', chars:[
-        {name:'Lucilla',sub:'★★★★★ · Glacio · Rectifier (Nuevo)',rarity:'5',nuevo:true},
-        {name:'Lucy (Collab)',sub:'★★★★★ · Cyberpunk Edgerunners',rarity:'5',nuevo:true}
+      { label:'FASE 1', dates:'~10 Jul – ~31 Jul CLT', chars:[
+        {name:'Yangyang: Xuanling',sub:'★★★★★ · SP · Main DPS · Espada (NUEVO)',rarity:'5',nuevo:true}
       ]},
-      { label:'FASE 2', dates:'~29 Jun – ~20 Jul CLT', chars:[
-        {name:'Rebecca (Collab)',sub:'★★★★★ · Cyberpunk Edgerunners',rarity:'5',nuevo:true}
+      { label:'FASE 2', dates:'~31 Jul – ~21 Ago CLT', chars:[
+        {name:'Suisui',sub:'★★★★★ · Glacio · Rectifier (NUEVO)',rarity:'5',nuevo:true}
       ]}
     ],
-    current:{ version:'3.3', phases:[
-      { label:'FASE 2 ACTIVA', end:'11 Jun 2026', chars:[
-        {name:'Denia',sub:'Fusión · Rectifier (Nuevo)',rarity:'gold',nuevo:true},
-        {name:'Chisa',sub:'Havoc · Broadblade (Rerun)',rarity:'gold',nuevo:false},
-        {name:'Phrolova',sub:'Havoc · Rectifier (Rerun)',rarity:'gold',nuevo:false}
+    current:{ version:'3.4', banners:[
+      { label:'FASE 1 · Lucy + Rebecca (Collab)', endDate:'2026-07-09', endStr:'9 Jul 2026', collab:true, collabName:'Cyberpunk: Edgerunners', chars:[
+        {name:'Lucy (Lucia Kushinada)',sub:'★★★★★ · DPS · Monowires (NUEVO)',rarity:'r-gold',nuevo:true},
+        {name:'Rebecca',sub:'★★★★★ · DPS · GRATIS vía evento',rarity:'r-free',nuevo:true,free:true}
+      ]},
+      { label:'FASE 2 · Lucilla + Cartethyia', endDate:'2026-07-09', endStr:'9 Jul 2026', collab:false, chars:[
+        {name:'Lucilla',sub:'★★★★★ · Glacio · Rectifier (NUEVO)',rarity:'r-gold',nuevo:true},
+        {name:'Cartethyia',sub:'★★★★★ · Aero · Espada (Rerun)',rarity:'r-gold',nuevo:false,rerun:true}
       ]}
     ]}
   },
   {
-    id:'akef', name:'Arknights: Endfield', shortName:'Endfield', version:'1.3',
-    patchName:'Sketches of Lost Heirlooms', accent:'#f97316', img:'img/akef.jpg',
-    target:new Date('2026-06-05T12:00:00+08:00'),
-    releaseStr:'5 JUN 2026 · 00:00 CLT', confirmed:true,
+    id:'akef', name:'Arknights: Endfield', shortName:'Endfield', version:'1.4',
+    patchName:'Yinglung Special Task Force', accent:'#f97316', img:'img/akef.jpg',
+    target: new Date('2026-07-16T12:00:00+08:00'),
+    releaseStr:'16 JUL 2026 · 00:00 CLT', confirmed:false,
     phases:[
-      { label:'FASE 1', dates:'5 Jun – 26 Jun CLT', chars:[
-        {name:'Mi Fu',sub:'6★ · Físico · Guard',rarity:'5',nuevo:true}
+      { label:'FASE 1', dates:'~16 Jul – ~6 Ago CLT', chars:[
+        {name:'Arcane (Li Zhiyan)',sub:'6★ · Capitana Yinglung Task Force (NUEVO)',rarity:'5',nuevo:true}
       ]},
-      { label:'FASE 2', dates:'26 Jun – ~10 Jul CLT', chars:[
-        {name:'Camille',sub:'6★ · Calor · Vanguard (1er operador masculino)',rarity:'5',nuevo:true}
+      { label:'FASE 2', dates:'~6 Ago – ~28 Ago CLT', chars:[
+        {name:'Idol (sin confirmar)',sub:'6★ · Por anunciar',rarity:'5',nuevo:true}
       ]}
     ],
-    current:{ version:'1.2', phases:[
-      { label:'PRÓXIMAMENTE', end:'5 Jun 2026', chars:[
-        {name:'Mi Fu',sub:'6★ · Disponible desde Fase 1 (Jun 5)',rarity:'gold',nuevo:true}
+    current:{ version:'1.3', banners:[
+      { label:'FASE 1 · Mi Fu', endDate:'2026-06-26', endStr:'26 Jun 2026', collab:false, chars:[
+        {name:'Mi Fu',sub:'6★ · Físico · Guard · "Fists of No Regrets"',rarity:'r-gold',nuevo:true}
+      ]},
+      { label:'FASE 2 · Camille', endDate:'2026-07-10', endStr:'~10 Jul 2026', collab:false, chars:[
+        {name:'Camille',sub:'6★ · Calor · Vanguard · 1er operador masculino',rarity:'r-gold',nuevo:true}
       ]}
     ]}
   },
   {
-    id:'nte', name:'Neverness to Everness', shortName:'NTE', version:'1.1',
-    patchName:'Dreamwalk Corridor', accent:'#c084fc', img:'img/nte.jpg',
-    target:new Date('2026-06-03T16:00:00-07:00'),
-    releaseStr:'3 JUN 2026 · 19:00 CLT', confirmed:true,
+    id:'nte', name:'Neverness to Everness', shortName:'NTE', version:'1.2',
+    patchName:'Shinku & Iroi', accent:'#c084fc', img:'img/nte.jpg',
+    target: new Date('2026-07-09T16:00:00-07:00'),
+    releaseStr:'9 JUL 2026 · 19:00 CLT', confirmed:false,
     phases:[
-      { label:'FASE 1', dates:'3 Jun – 24 Jun CLT', chars:[
-        {name:'Lacrimosa',sub:'S-Rank · Caos · DPS',rarity:'5',nuevo:true}
+      { label:'FASE 1', dates:'~9 Jul – ~30 Jul CLT', chars:[
+        {name:'Shinku',sub:'S-Rank · NUEVO',rarity:'s',nuevo:true}
       ]},
-      { label:'FASE 2', dates:'24 Jun – 8 Jul CLT', chars:[
-        {name:'Chaos',sub:'S-Rank · Lakshana · ETD 6º Pelotón',rarity:'5',nuevo:true}
+      { label:'FASE 2', dates:'~30 Jul – ~20 Ago CLT', chars:[
+        {name:'Iroi',sub:'S-Rank · NUEVO',rarity:'s',nuevo:true}
       ]}
     ],
-    current:{ version:'1.0', phases:[
-      { label:'FASE 2 ACTIVA', end:'3 Jun 2026', chars:[
-        {name:'Hotori',sub:'S-Rank · Cosmos · Manipulación del tiempo',rarity:'gold',nuevo:true}
+    current:{ version:'1.1', banners:[
+      { label:'FASE 1 · Lacrimosa', endDate:'2026-06-24', endStr:'24 Jun 2026', collab:false, chars:[
+        {name:'Lacrimosa',sub:'S-Rank · Caos · "Fading Revery Board"',rarity:'r-gold',nuevo:true}
+      ]},
+      { label:'FASE 2 · Chaos', endDate:'2026-07-08', endStr:'8 Jul 2026', collab:false, chars:[
+        {name:'Chaos',sub:'S-Rank · Lakshana · "Forsaken Path Board"',rarity:'r-gold',nuevo:true}
       ]}
     ]}
   },
   {
-    id:'zzz', name:'Zenless Zone Zero', shortName:'ZZZ', version:'3.0',
-    patchName:'Roscaelifer — Season 3', accent:'#fb923c', img:'img/zzz.jpg',
-    target:new Date('2026-06-16T20:00:00-07:00'),
-    releaseStr:'16 JUN 2026 · 23:00 CLT', confirmed:true,
+    id:'zzz', name:'Zenless Zone Zero', shortName:'ZZZ', version:'3.1',
+    patchName:'Roscaelifer — Anniversary', accent:'#fb923c', img:'img/zzz.jpg',
+    target: new Date('2026-07-29T20:00:00-07:00'),
+    releaseStr:'29 JUL 2026 · 23:00 CLT', confirmed:false,
     phases:[
-      { label:'FASE 1', dates:'17 Jun – ~8 Jul CLT', chars:[
-        {name:'Velina Airgid',sub:'S-Rank · Viento · Anomalía (1er Agente Viento)',rarity:'s',nuevo:true},
-        {name:'Pyrois',sub:'S-Rank · Éter · Forma combate de Phaethon',rarity:'s',nuevo:true}
+      { label:'FASE 1', dates:'~29 Jul – ~19 Ago CLT', chars:[
+        {name:'Remielle Dan',sub:'S-Rank · Lumen · Anomalía (1er Agente Lumen)',rarity:'s',nuevo:true}
       ]},
-      { label:'FASE 2', dates:'~8 Jul – ~29 Jul CLT', chars:[
-        {name:'Norma Hollowell',sub:'S-Rank · Fuego · Stun',rarity:'s',nuevo:true}
+      { label:'FASE 2', dates:'~19 Ago – ~8 Sep CLT', chars:[
+        {name:'Sigrid',sub:'S-Rank · Por confirmar (NUEVO)',rarity:'s',nuevo:true}
       ]}
     ],
-    current:{ version:'2.8', phases:[
-      { label:'FASE 2 ACTIVA', end:'16 Jun 2026', chars:[
-        {name:'Starlight Billy',sub:'S-Rank · Físico · Ruptura (Nuevo)',rarity:'gold',nuevo:true},
-        {name:'Orphie & Magus',sub:'S-Rank · Fuego · Ataque (Rerun)',rarity:'gold',nuevo:false}
+    current:{ version:'3.0', banners:[
+      { label:'FASE 1 · Velina', endDate:'2026-07-08', endStr:'8 Jul 2026', collab:false, chars:[
+        {name:'Velina Airgid',sub:'S-Rank · Viento · Anomalía (1er Agente Viento)',rarity:'r-gold',nuevo:true},
+        {name:'Ye Shunguang',sub:'S-Rank · Éter · Ataque (Rerun)',rarity:'r-gold',nuevo:false,rerun:true},
+        {name:'Pyrois',sub:'S-Rank · Éter · Forma Phaethon',rarity:'r-free',nuevo:true,free:true}
+      ]},
+      { label:'FASE 2 · Norma', endDate:'2026-07-28', endStr:'28 Jul 2026', collab:false, chars:[
+        {name:'Norma Hollowell',sub:'S-Rank · Fuego · Stun (NUEVO)',rarity:'r-gold',nuevo:true},
+        {name:'Sunna',sub:'S-Rank · Rerun',rarity:'r-gold',nuevo:false,rerun:true}
       ]}
     ]}
   },
   {
     id:'genshin', name:'Genshin Impact', shortName:'Genshin', version:'6.7',
     patchName:'Luna VIII — Rumbo a Snezhnaya', accent:'#f5c842', img:'img/genshin.jpg',
-    target:new Date('2026-07-01T20:00:00-07:00'),
-    releaseStr:'1 JUL 2026 · 23:00 CLT', confirmed:false,
+    target: new Date('2026-07-01T18:00:00-04:00'),
+    releaseStr:'1 JUL 2026 · 18:00 CLT', confirmed:false,
     phases:[
       { label:'FASE 1', dates:'~1 Jul – ~22 Jul CLT', chars:[
-        {name:'Sandrone',sub:'★★★★★ · Debut · Harbinger (La Marionetta)',rarity:'5',nuevo:true},
+        {name:'Sandrone',sub:'★★★★★ · Debut · Harbinger "La Marionetta"',rarity:'5',nuevo:true},
         {name:'Columbina',sub:'★★★★★ · Primer Rerun',rarity:'rerun',nuevo:false}
       ]},
       { label:'FASE 2', dates:'~22 Jul – ~12 Ago CLT', chars:[
@@ -415,23 +383,20 @@ const GAMES = [
         {name:'Citlali',sub:'★★★★★ · Cryo · Rerun',rarity:'rerun',nuevo:false}
       ]}
     ],
-    current:{ version:'6.6', phases:[
-      { label:'FASE 1 ACTIVA', end:'9 Jun 2026', chars:[
-        {name:'Nicole Reeyn',sub:'★★★★★ · Pyro · Catalyst (Debut)',rarity:'gold',nuevo:true},
-        {name:'Durin',sub:'★★★★★ · Rerun',rarity:'gold',nuevo:false},
-        {name:'Prune',sub:'★★★★ · Anemo · Catalyst (Debut)',rarity:'purple',nuevo:true}
+    current:{ version:'6.6', banners:[
+      { label:'FASE 1 · Nicole + Durin', endDate:'2026-06-09', endStr:'9 Jun 2026', collab:false, chars:[
+        {name:'Nicole Reeyn',sub:'★★★★★ · Pyro · Catalyst (NUEVO)',rarity:'r-gold',nuevo:true},
+        {name:'Durin',sub:'★★★★★ · Rerun',rarity:'r-gold',nuevo:false,rerun:true},
+        {name:'Prune',sub:'★★★★ · Anemo · Catalyst (NUEVO)',rarity:'r-purple',nuevo:true}
       ]},
-      { label:'FASE 2', end:'30 Jun 2026', chars:[
-        {name:'Lohen',sub:'★★★★★ · Cryo · Polearm (Debut)',rarity:'gold',nuevo:true},
-        {name:'Mavuika',sub:'★★★★★ · Pyro · Claymore (Rerun)',rarity:'gold',nuevo:false}
+      { label:'FASE 2 · Lohen + Mavuika', endDate:'2026-06-30', endStr:'30 Jun 2026', collab:false, chars:[
+        {name:'Lohen',sub:'★★★★★ · Cryo · Polearm (NUEVO)',rarity:'r-gold',nuevo:true},
+        {name:'Mavuika',sub:'★★★★★ · Pyro · Claymore (Rerun)',rarity:'r-gold',nuevo:false,rerun:true}
       ]}
     ]}
   }
 ];
 
-/* ─────────────────────────────────────────
-   HELPERS
-───────────────────────────────────────── */
 function pad(n){return String(n).padStart(2,'0')}
 function getCountdown(t){
   const diff=t.getTime()-Date.now();
@@ -450,9 +415,7 @@ function cdHTML(g,c){
   </div>`;
 }
 
-/* ─────────────────────────────────────────
-   COUNTDOWN CARDS
-───────────────────────────────────────── */
+/* ── COUNTDOWN CARDS ── */
 function buildCard(g){
   const c=getCountdown(g.target);
   const est=g.confirmed?'':`<span class="release-est">(est.)</span>`;
@@ -470,89 +433,100 @@ function buildCard(g){
     <div class="card-body">
       <div class="patch-name">"${g.patchName}"</div>
       <div class="release-row"><span class="release-icon">◈</span><span class="release-date">${g.releaseStr}</span>${est}</div>
-      <div class="divider"></div>
-      ${cdHTML(g,c)}
+      <div class="divider"></div>${cdHTML(g,c)}
     </div>
   </div>`;
 }
 
-/* ─────────────────────────────────────────
-   CURRENT BANNER CARDS
-───────────────────────────────────────── */
+/* ── CURRENT BANNER CARDS ── */
+function isEnded(endDate){
+  if(!endDate) return false;
+  return new Date(endDate + 'T23:59:59-04:00').getTime() < Date.now();
+}
+
 function buildCurrentCard(g){
   const cur=g.current;
   if(!cur)return'';
-  let phasesHTML='';
-  cur.phases.forEach(ph=>{
-    let charsHTML=ph.chars.map(ch=>{
-      const badge=ch.nuevo
-        ?`<span class="cb-new-badge">NEW</span>`
-        :`<span class="cb-rerun-badge">RERUN</span>`;
-      return`<div class="cb-char ${ch.rarity==='gold'?'rarity-gold':'rarity-purple'}">
-        <span class="cb-char-star">${ch.rarity==='gold'?'★':'◆'}</span>
-        <div>
+
+  let bannersHTML='';
+  cur.banners.forEach(bn=>{
+    const ended = isEnded(bn.endDate);
+    const permanent = bn.endDate === null;
+
+    // Status pill
+    let statusHTML='';
+    if(permanent){
+      statusHTML=`<span class="cb-status-permanent">∞ PERMANENTE</span>`;
+    } else if(ended){
+      statusHTML=`<span class="cb-status-ended">✕ FINALIZADO · ${bn.endStr}</span>`;
+    } else {
+      statusHTML=`<span class="cb-status-active"><span class="cb-status-active-dot"></span>ACTIVO · Hasta ${bn.endStr}</span>`;
+    }
+
+    const collabTag=bn.collab?`<span class="cb-collab-tag">★ COLLAB · ${bn.collabName}</span>`:'';
+
+    let charsHTML=bn.chars.map(ch=>{
+      const badge=ch.free
+        ?`<span class="badge-free">GRATIS</span>`
+        :ch.rerun
+          ?`<span class="badge-rerun">RERUN</span>`
+          :ch.nuevo
+            ?`<span class="badge-new">NEW</span>`:'';
+      const rc=ch.rarity==='r-free'?'r-free':ch.rarity==='r-purple'?'r-purple':'r-gold';
+      const star=rc==='r-free'?'FREE':rc==='r-purple'?'◆◆◆◆':'★★★★★';
+      return`<div class="cb-char-row">
+        <span class="cb-rarity ${rc}">${star}</span>
+        <div class="cb-char-info">
           <div class="cb-char-name">${ch.name}${badge}</div>
           <div class="cb-char-sub">${ch.sub}</div>
         </div>
       </div>`;
     }).join('');
-    phasesHTML+=`<div class="cb-phase">
-      <div class="cb-phase-header">
-        <span class="cb-phase-label">${ph.label}</span>
-        <span class="cb-phase-end"><span class="cb-end-dot"></span>Hasta ${ph.end}</span>
+
+    bannersHTML+=`<div class="cb-banner${ended?' is-ended':''}">
+      <div class="cb-banner-head">
+        <span class="cb-banner-label">${bn.label}${collabTag}</span>
+        ${statusHTML}
       </div>
       <div class="cb-chars">${charsHTML}</div>
     </div>`;
   });
 
-  return`<div class="cb-card" style="--cb-ac:${g.accent};position:relative">
+  return`<div class="cb-card" style="--cb-ac:${g.accent}">
     <div class="cb-stripe"></div>
-    <div class="cb-corner"></div>
+    <div class="cb-corner-cut"></div>
     <div class="cb-inner">
       <div class="cb-game-row">
-        <span class="cb-game-dot"></span>
+        <span class="cb-dot"></span>
         <span class="cb-game-name">${g.name}</span>
-        <span class="cb-version">v${cur.version}</span>
+        <span class="cb-ver">v${cur.version}</span>
       </div>
-      <div class="cb-phases">${phasesHTML}</div>
+      <div class="cb-banners">${bannersHTML}</div>
     </div>
   </div>`;
 }
 
-/* ─────────────────────────────────────────
-   RENDER
-───────────────────────────────────────── */
+/* ── RENDER ── */
 document.getElementById('grid').innerHTML=GAMES.map(buildCard).join('');
 document.getElementById('currentGrid').innerHTML=GAMES.map(buildCurrentCard).join('');
-
-// Ticker
 const items=[...GAMES,...GAMES].map(g=>`<span class="ticker-item">${g.shortName} <b>v${g.version}</b> · ${g.releaseStr}</span>`);
 document.getElementById('ticker').innerHTML=items.join('');
 
-// Live tick
 setInterval(()=>{
   GAMES.forEach(g=>{
-    const ds=document.getElementById(g.id+'-d');
-    if(!ds)return;
+    const ds=document.getElementById(g.id+'-d');if(!ds)return;
     const c=getCountdown(g.target);
     if(!c){ds.closest('.countdown').outerHTML=`<div class="status-live">◆ ¡EN VIVO AHORA! ◆</div>`;return;}
     if(c.diff<86400000){ds.closest('.countdown').outerHTML=`<div class="status-soon">⚡ MENOS DE 24H ⚡</div>`;return;}
     ds.textContent=pad(c.d);
-    const hs=document.getElementById(g.id+'-h');
-    const ms=document.getElementById(g.id+'-m');
-    const ss=document.getElementById(g.id+'-s');
-    if(hs)hs.textContent=pad(c.h);
-    if(ms)ms.textContent=pad(c.m);
-    if(ss)ss.textContent=pad(c.sec);
+    const hs=document.getElementById(g.id+'-h'),ms=document.getElementById(g.id+'-m'),ss=document.getElementById(g.id+'-s');
+    if(hs)hs.textContent=pad(c.h);if(ms)ms.textContent=pad(c.m);if(ss)ss.textContent=pad(c.sec);
   });
 },1000);
 
-/* ─────────────────────────────────────────
-   MODAL
-───────────────────────────────────────── */
-function rarityClass(r){if(r==='rerun')return'rarity-rerun';if(r==='6'||r==='5'||r==='s')return'rarity-5';if(r==='4'||r==='a')return'rarity-4';return'rarity-4';}
-function rarityLabel(r,nuevo){if(r==='rerun')return'RERUN';if(r==='6')return nuevo?'6★ NUEVO':'6★';if(r==='5')return nuevo?'5★ NUEVO':'5★';if(r==='s')return nuevo?'S NUEVO':'S-RANK';if(r==='4'||r==='a')return nuevo?'4★ NUEVO':'4★';return r.toUpperCase();}
-
+/* ── MODAL ── */
+function rarityClass(r){if(r==='rerun')return'rarity-rerun';if(['6','5','s'].includes(r))return'rarity-5';return'rarity-4';}
+function rarityLabel(r,nuevo){if(r==='rerun')return'RERUN';if(r==='6')return nuevo?'6★ NUEVO':'6★';if(r==='5')return nuevo?'5★ NUEVO':'5★';if(r==='s')return nuevo?'S NUEVO':'S-RANK';return r.toUpperCase();}
 function openModal(id){
   const g=GAMES.find(x=>x.id===id);if(!g)return;
   const modal=document.getElementById('modal');
@@ -564,13 +538,9 @@ function openModal(id){
     html+=`<div class="phase-card"><div class="phase-header"><span class="phase-label">${ph.label}</span><span class="phase-dates">${ph.dates}</span></div>`;
     if(ph.chars&&ph.chars.length){
       html+='<div class="phase-chars">';
-      ph.chars.forEach(ch=>{
-        html+=`<div class="char-row"><span class="char-rarity ${rarityClass(ch.rarity)}">${rarityLabel(ch.rarity,ch.nuevo)}</span><div class="char-info"><div class="char-name">${ch.name}</div><div class="char-sub">${ch.sub}</div></div></div>`;
-      });
+      ph.chars.forEach(ch=>{html+=`<div class="char-row"><span class="char-rarity ${rarityClass(ch.rarity)}">${rarityLabel(ch.rarity,ch.nuevo)}</span><div class="char-info"><div class="char-name">${ch.name}</div><div class="char-sub">${ch.sub}</div></div></div>`;});
       html+='</div>';
-    } else {
-      html+=`<div class="phase-unannounced"><span class="unannounced-badge">⏳ Por anunciar</span></div>`;
-    }
+    } else { html+=`<div class="phase-unannounced"><span class="unannounced-badge">⏳ Por anunciar</span></div>`; }
     html+='</div>';
   });
   html+='</div>';
